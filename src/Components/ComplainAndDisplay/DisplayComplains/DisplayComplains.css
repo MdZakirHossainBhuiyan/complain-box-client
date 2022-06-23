@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.displayComplain-section{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.displayComplain-header h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: rgb(70, 69, 69);
+    margin: 30px 0px;
+}
+
+.displayComplain-content{
+    display: grid;
+    grid: auto/auto auto auto;
+    gap: 10px;
+    margin: 0px 150px;
+    margin-bottom: 30px;
+}

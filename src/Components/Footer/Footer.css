@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section{
+    width: 100%;
+    height: auto;
+    background-color: rgb(54, 203, 240);
+    padding: 10px 0px;
+}
+
+.footer-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    color: rgb(70, 67, 67);
+}
+
+.footer-div p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+}

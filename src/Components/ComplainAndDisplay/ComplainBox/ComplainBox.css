@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.complainBox-section{
+    width: 100%;
+    position: relative;
+}
+
+.complainBox-displayButton{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 90px;
+}
+
+.complainBox-displayButton button{
+    border: none;
+    background-color: rgb(54, 203, 240);
+    padding: 10px 50px;
+    font-weight: 700;
+}
+
+.complainBox-displayButton button:hover{
+    background-color: rgb(79, 191, 219);
+    letter-spacing: 1px;
+    transition-duration: 1s;
+}
+
+.complainBox-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.complainBox-header h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.complainBox-form{
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.complainBox-form form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #fff;
+}
+
+.complainBox-formInputDiv{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.complainBox-gridInputDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.complainBox-fieldGap{
+    padding-right: 10px;
+}
+
+.complainBox-fileUpload{
+    width: 100%;
+}
+
+.complainBox-fileUpload input{
+    border: none;
+
+}
+
+.complainBox-submit{
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.complainBox-submit button{
+    background-color: rgb(54, 203, 240);
+    border: none;
+    padding: 10px 80px;
+    cursor: pointer;
+}
+
+.complainBox-submit button:hover{
+    background-color: aqua;
+    transition-duration: 1s;
+}
