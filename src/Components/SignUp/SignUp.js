@@ -13,8 +13,6 @@ const SignUp = () => {
         setUserInfo(addInfo);
     }
 
-    console.log('userInfo', userInfo);
-
     const handleSubmit = event => {
         event.preventDefault();
         alert("Your signUp successfully done.");

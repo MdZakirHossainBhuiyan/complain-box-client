@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.dashboardBody-mainDiv{
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboardBody-navBar{
+    width: 100%;
+    height: 30px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+}
+
+.dashboardBody-navBar button{
+    text-align: center;
+    padding: 10px 50px;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+}
+
+.dashboardBody-navBar button:hover{
+    background-color: orange;
+    color: #fff;
+}
+
+.dashboardBody-content{
+    width: 100%;
+    margin-top: 30px;
+}

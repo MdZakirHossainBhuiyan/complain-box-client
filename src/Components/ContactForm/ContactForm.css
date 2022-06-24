@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contactForm-section{
+    width: 100%;
+    position: relative;
+}
+
+.contactForm-header{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactForm-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactForm-header h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.contactForm-img img{
+    width: 300px;
+    height: 400px;
+    padding-right: 100px;
+}
+
+.contactForm-form{
+    width: 85%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin: 0px 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contactForm-form form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contactForm-formInputDiv{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.contactForm-submit{
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contactForm-submit button{
+    background-color: rgb(54, 203, 240);
+    border: none;
+    padding: 10px 80px;
+    cursor: pointer;
+}
+
+.contactForm-submit button:hover{
+    background-color: aqua;
+    transition-duration: 1s;
+}

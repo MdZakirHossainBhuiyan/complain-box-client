@@ -4,37 +4,30 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import IdentityOption from './Components/IdentityOption/IdentityOption';
-import Login from './Components/SignIn/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import ComplainAndDisplay from './Components/ComplainAndDisplay/ComplainAndDisplay';
 import UserSignIn from './Components/UserSignIn/UserSignIn';
+import { createContext, useState } from 'react';
+import ContactFormMain from './Components/ContactForm/ContactFormMain';
+import DashBoard from './Components/Dashboard/DashBoard';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<IdentityOption />} />
-        <Route exact path="/signInPage" element={<Login />} />
-        <Route exact path="/signUpPage" element={<SignUp />} />
-        <Route exact path="/userSignIn" element={<UserSignIn />} />
-        <Route exact path="/home" element={<ComplainAndDisplay />} />
-      </Routes>
-      {/* <Switch>
-        <Route exact path="/">
-          <IdentityOption />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/registration">
-          <SignUp />
-        </Route>
-        <Route exact path="/home">
-          <ComplainAndDisplay />
-        </Route>
-      </Switch> */}
-    </Router>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<UserSignIn />} />
+          <Route exact path="/signUpPage" element={<SignUp />} />
+          <Route exact path="/userSignIn" element={<UserSignIn />} />
+          <Route exact path="/home" element={<ComplainAndDisplay />} />
+          <Route exact path="/contact" element={<ContactFormMain />} />
+          <Route exact path="/dashboard" element={<DashBoard />} />
+        </Routes>
+      </Router>
+    </UserContext.Provider>
   );
 }
 

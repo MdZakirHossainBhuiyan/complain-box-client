@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ComplainBox.css';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
@@ -7,9 +7,11 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
+import { UserContext } from '../../../App';
 
 const ComplainBox = ({state}) => {
-    const {_id, userName, userEmail} = state.userLoadData;
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {_id, userName, userEmail} = loggedInUser;
     const [isDisplay, setIsDisplay] = useState(false);
     const [inputValue, setInputValue] = useState(null);
     const [inputFile, setInputFile] = useState(null);

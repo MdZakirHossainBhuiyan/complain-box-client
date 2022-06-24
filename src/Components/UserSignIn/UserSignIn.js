@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Avatar, Box, Button, Container, createTheme, CssBaseline, Grid, TextField, ThemeProvider, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 const UserSignIn = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const theme = createTheme();
     const [userInfo, setUserInfo] = useState(null);
     const [userLoadData, setUserLoadData] = useState(null);
@@ -25,11 +27,12 @@ const UserSignIn = () => {
     const handleSubmit = event => {
         event.preventDefault();
 
+        setLoggedInUser(userLoadData);
+
         if(userLoadData?.userEmail && userLoadData?.userPassword){
             navigate("/home", { 
                 replace: true,
-                state: {userLoadData},
-             });
+            });
         }
         else{
             alert("email or password is incorrect");

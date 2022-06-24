@@ -18,7 +18,7 @@ const DisplayComplains = () => {
             </div>
             <div className='displayComplain-content'>
                 {
-                    complains?.map(complain => <DisplayComplainCard complain={complain} />)
+                    complains?.map(complain => <DisplayComplainCard key={complains._id} complain={complain} />)
                 }
             </div>
         </section>
