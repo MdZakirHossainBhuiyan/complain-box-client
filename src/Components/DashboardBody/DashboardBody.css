@@ -12,7 +12,6 @@
 .dashboardBody-navBar{
     width: 100%;
     height: 30px;
-    padding-top: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,11 +26,38 @@
     border: none;
     font-family: 'Times New Roman', Times, serif;
     font-size: 14px;
+    cursor: pointer;
+}
+
+.activeButton{
+    background-color: orange;
+    color: #fff;
 }
 
 .dashboardBody-navBar button:hover{
     background-color: orange;
     color: #fff;
+}
+
+.userDashBoard-contentBody{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userDashBoard-contentHeader h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.userComplain-cardBody{
+    display: grid;
+    grid: auto/auto auto auto;
+    gap: 10px;
 }
 
 .dashboardBody-content{

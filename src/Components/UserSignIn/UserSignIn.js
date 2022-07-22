@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Avatar, Box, Button, Container, createTheme, CssBaseline, Grid, TextField, ThemeProvider, Typography } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 const UserSignIn = () => {
@@ -28,6 +28,7 @@ const UserSignIn = () => {
         event.preventDefault();
 
         setLoggedInUser(userLoadData);
+        sessionStorage.setItem("user", JSON.stringify(userLoadData));
 
         if(userLoadData?.userEmail && userLoadData?.userPassword){
             navigate("/home", { 

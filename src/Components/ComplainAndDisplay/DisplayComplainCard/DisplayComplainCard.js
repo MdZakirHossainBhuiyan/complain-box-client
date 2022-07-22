@@ -28,7 +28,7 @@ const DisplayComplainCard = ({complain}) => {
             />
             <CardContent>
                 <Typography variant="h6" color="text.secondary">
-                    {complain.complainTitle}
+                    {complain.complainTitle} {(complain?.status) && <small className='complainStatus'>{complain?.status}</small>}
                 </Typography>
             </CardContent>
             <CardContent>

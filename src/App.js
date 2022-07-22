@@ -1,4 +1,3 @@
-import './App.css';
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,11 +9,14 @@ import UserSignIn from './Components/UserSignIn/UserSignIn';
 import { createContext, useState } from 'react';
 import ContactFormMain from './Components/ContactForm/ContactFormMain';
 import DashBoard from './Components/Dashboard/DashBoard';
+import PrivateOutlet from "./Components/PrivateOutlet/PrivateOutlet";
+import StaffListForUser from "./Components/StaffListForUser/StaffListForUser";
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
@@ -22,9 +24,12 @@ function App() {
           <Route exact path="/" element={<UserSignIn />} />
           <Route exact path="/signUpPage" element={<SignUp />} />
           <Route exact path="/userSignIn" element={<UserSignIn />} />
-          <Route exact path="/home" element={<ComplainAndDisplay />} />
-          <Route exact path="/contact" element={<ContactFormMain />} />
-          <Route exact path="/dashboard" element={<DashBoard />} />
+          <Route path="/*" element={<PrivateOutlet />} >
+            <Route path="home" element={<ComplainAndDisplay />} />
+            <Route path="staffList" element={<StaffListForUser />} />
+            <Route path="contact" element={<ContactFormMain />} />
+            <Route path="dashboard" element={<DashBoard />} />
+          </Route>
         </Routes>
       </Router>
     </UserContext.Provider>

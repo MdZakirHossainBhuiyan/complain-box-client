@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.list-section{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.list-div{
+    width: 100%;
+    height: auto;
+}
+
+.list-header{
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.list-header h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.list-content{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid: auto/auto auto auto;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.card-body{
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #F0F0F0;
+}
+
+.cardBody-left{
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardBody-left h5{
+    color: orange;
+    font-size: 18px;
+}
+
+.cardBody-left p{
+    font-size: 14px;
+}
+
+.cardBody-right{
+    width: 50%;
+    padding: 10px 10px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+}
+
+.cardBody-right th{
+    text-align: left;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.cardBody-right td{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.cardBody-right h6{
+    align-items: center;
+    font-size: 18px;
+}

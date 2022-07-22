@@ -2,3 +2,21 @@
     margin: 0;
     padding: 0;
 }
+
+.complainStatus{
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    background-color: orange;
+    text-transform: capitalize;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 50px;
+}
+
+.displayComplainCard-message{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 500px;
+}

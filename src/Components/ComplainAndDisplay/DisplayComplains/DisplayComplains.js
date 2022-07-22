@@ -1,14 +1,24 @@
+import { Box, CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import DisplayComplainCard from '../DisplayComplainCard/DisplayComplainCard';
 import './DisplayComplains.css';
 
 const DisplayComplains = () => {
     const [complains, setComplains] = useState(null);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/comlains')
-        .then(res => res.json())
-        .then(data => setComplains(data))
+        const fetchComplainsData = async () => {
+            setLoader(true);
+
+            const res = await fetch('http://localhost:5000/comlains');
+            const data = await res.json();
+            setComplains(data);
+
+            setLoader(false);
+        }
+
+        fetchComplainsData();
     }, [])
 
     return (
@@ -18,7 +28,11 @@ const DisplayComplains = () => {
             </div>
             <div className='displayComplain-content'>
                 {
-                    complains?.map(complain => <DisplayComplainCard key={complains._id} complain={complain} />)
+                    (!loader)?complains?.map(complain => <DisplayComplainCard key={complain._id} complain={complain} />)
+                    :
+                    <Box sx={{ display: 'flex' }}>
+                        <CircularProgress />
+                    </Box>
                 }
             </div>
         </section>
