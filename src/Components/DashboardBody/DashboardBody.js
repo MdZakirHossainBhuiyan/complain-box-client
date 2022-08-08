@@ -1,4 +1,4 @@
-import { Box, CircularProgress } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 import AddAdmin from '../AddAdmin/AddAdmin';
@@ -6,6 +6,7 @@ import AddStaff from '../AddStaff/AddStaff';
 import DisplayComplainCard from '../ComplainAndDisplay/DisplayComplainCard/DisplayComplainCard';
 import DisplayComplains from '../ComplainAndDisplay/DisplayComplains/DisplayComplains';
 import Lists from '../Lists/Lists';
+import NewComplains from '../NewComplains/NewComplains';
 import './DashboardBody.css';
 
 
@@ -31,7 +32,7 @@ const DashboardBody = () => {
         }
 
         fetchComplainsData();
-    }, [])
+    }, [loggedInUser.userEmail])
 
     const handleAddStaff = () => {
         (displayStaffForm)?setDisplayStaffForm(false):setDisplayStaffForm(true);
@@ -115,6 +116,7 @@ const DashboardBody = () => {
                 </div>
             }
             <div className='dashboardBody-content'>
+                {(loggedInUser.userStatus!=="user" && displayNewComplain) && <NewComplains />}
                 {displayStaffForm && <AddStaff />}
                 {displayAdminForm && <AddAdmin />}
                 {displayAllComplain && <DisplayComplains />}

@@ -24,6 +24,7 @@ const Header = () => {
                     <Link to="/home"><button className='header-navButton'>Home</button></Link>
                     <Link to="/dashboard"><button className='header-navButton'>Dashboard</button></Link>
                     <Link to="/staffList"><button className='header-navButton'>Staff List</button></Link>
+                    <Link to="#"><button className='header-navButton'>Emergency Contact</button></Link>
                     <Link to="/contact"><button className='header-navButton'>Contact Us</button></Link>
                     <button onClick={handleLogout} className='logoutButton'>Logout</button>
                 </div>

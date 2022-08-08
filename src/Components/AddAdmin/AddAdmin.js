@@ -4,6 +4,11 @@ import '../AddStaff/AddStaff.css';
 
 const AddAdmin = () => {
     const [inputValue, setInputValue] = useState(null);
+    const [displayButton, setDisplayButton] = useState(false);
+
+    const handleDisplayButton = () => {
+        setDisplayButton(false);
+    }
 
     const handleChange = (e) => {
         const newValue = {...inputValue};
@@ -28,7 +33,7 @@ const AddAdmin = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Admin add success.');
+            setDisplayButton(true);
         })
         .catch((err) => {
             console.error(err);
@@ -37,36 +42,45 @@ const AddAdmin = () => {
 
     return (
         <section className='addStaff-section'>
-            <div className='addStaff-header'>
-                <h5>Add New Admin</h5>
-            </div>
-            <div className='addStaff-form'>
-                <form onSubmit={handleSubmit}>
-                    <div className='complainBox-gridInputDiv'>
-                        <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                            <TextField onChange={handleChange} name="name" id="standard-basic" label="Full Name" variant="standard" fullWidth />
-                        </div>
-                        <div className='complainBox-formInputDiv'>
-                            <TextField onChange={handleChange} name="email" id="standard-basic" label="Email" variant="standard" fullWidth />
-                        </div>
+            {
+                displayButton && <div className='addStaff-displayButton'>
+                    <button onClick={handleDisplayButton}>Add More Admin</button>
+                </div>
+            }
+            {
+                (!displayButton) && <div className='addStaff-body'>
+                    <div className='addStaff-header'>
+                        <h5>Add New Admin</h5>
                     </div>
-                    <div className='complainBox-gridInputDiv'>
-                        <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                            <TextField onChange={handleChange} name="phone" id="standard-basic" label="Phone" variant="standard" fullWidth />
-                        </div>
-                        <div className='complainBox-formInputDiv'>
-                            <TextField onChange={handleChange} name="password" id="standard-basic" label="Password" variant="standard" fullWidth />
-                        </div>
+                    <div className='addStaff-form'>
+                        <form onSubmit={handleSubmit}>
+                            <div className='complainBox-gridInputDiv'>
+                                <div className='complainBox-formInputDiv complainBox-fieldGap'>
+                                    <TextField onChange={handleChange} name="name" id="standard-basic" label="Full Name" variant="standard" fullWidth />
+                                </div>
+                                <div className='complainBox-formInputDiv'>
+                                    <TextField onChange={handleChange} name="email" id="standard-basic" label="Email" variant="standard" fullWidth />
+                                </div>
+                            </div>
+                            <div className='complainBox-gridInputDiv'>
+                                <div className='complainBox-formInputDiv complainBox-fieldGap'>
+                                    <TextField onChange={handleChange} name="phone" id="standard-basic" label="Phone" variant="standard" fullWidth />
+                                </div>
+                                <div className='complainBox-formInputDiv'>
+                                    <TextField onChange={handleChange} name="password" id="standard-basic" label="Password" variant="standard" fullWidth />
+                                </div>
+                            </div>
+                            <div className='contactForm-formInputDiv'>
+                                <TextField onChange={handleChange} name="address" id="standard-basic" label="Address" variant="standard" fullWidth />
+                            </div>
+                            
+                            <div className='addStaff-submit'>
+                                <button>Add Staff</button>
+                            </div>
+                        </form>
                     </div>
-                    <div className='contactForm-formInputDiv'>
-                        <TextField onChange={handleChange} name="address" id="standard-basic" label="Address" variant="standard" fullWidth />
-                    </div>
-                    
-                    <div className='addStaff-submit'>
-                        <button>Add Staff</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            }
         </section>
     );
 };

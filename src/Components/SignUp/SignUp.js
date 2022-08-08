@@ -27,7 +27,6 @@ const SignUp = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Your signUp complete.');
             navigate("/userSignIn", { replace: true });
         })
         .catch((err) => {
@@ -61,6 +60,7 @@ const SignUp = () => {
                             autoComplete="name"
                             autoFocus
                             onBlur={handleBlur}
+                            onChange
                         />
                         <TextField
                             margin="normal"

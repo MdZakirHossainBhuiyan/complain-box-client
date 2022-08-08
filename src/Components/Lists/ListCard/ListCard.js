@@ -54,9 +54,30 @@ const ListCard = ({data}) => {
                         (data.userStatus!=="admin") &&
                         <Typography sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}> <br /><br />
                             Dedicated Area:
-                            <Typography sx={{color: 'gray', fontStyle: 'italic', fontSize: '12px'}}>
-                                Word No. {data.word}, Union: {data.union}, Thana: {data.thana}
-                            </Typography>
+                            {
+                                data.userStatus==="Word Member" && 
+                                <Typography sx={{color: 'gray', fontStyle: 'italic', fontSize: '12px'}}>
+                                    Word No. {data.word}, Union: {data.union}, Thana: {data.thana}
+                                </Typography>
+                            }
+                            {
+                                data.userStatus==="Union Chairman" && 
+                                <Typography sx={{color: 'gray', fontStyle: 'italic', fontSize: '12px'}}>
+                                    Union: {data.union}, Thana: {data.thana}
+                                </Typography>
+                            }
+                            {
+                                data.userStatus==="UNO" && 
+                                <Typography sx={{color: 'gray', fontStyle: 'italic', fontSize: '12px'}}>
+                                    Thana: {data.thana}
+                                </Typography>
+                            }
+                            {
+                                (data.userStatus==="Magistrate" || data.userStatus==="Mayor") && 
+                                <Typography sx={{color: 'gray', fontStyle: 'italic', fontSize: '12px'}}>
+                                    Full District
+                                </Typography>
+                            }
                         </Typography>
                     }
                 </CardContent>

@@ -69,13 +69,15 @@ const ComplainBox = ({state}) => {
 
     return (
         <section className='complainBox-section'>
-            <div className='complainBox-displayButton'>
-                <button onClick={handleDisplay}>
-                    {
-                        isDisplay?"Hide Complain Box":"Create Your Own Complain"
-                    }
-                </button>
-            </div>
+            {
+                (loggedInUser.userStatus==="user") && <div className='complainBox-displayButton'>
+                    <button onClick={handleDisplay}>
+                        {
+                            isDisplay?"Hide Complain Box":"Create Your Own Complain"
+                        }
+                    </button>
+                </div>
+            }
             {
                 isDisplay && 
                 <div className='complainBox-form'>

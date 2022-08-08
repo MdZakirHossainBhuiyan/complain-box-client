@@ -18,8 +18,6 @@ const StaffListTable = () => {
         ));
     }, [])
 
-    console.log('first -- ', staffListData);
-
     return (
         <div className='staffListForUser-body'>
             <TableContainer component={Paper}>
@@ -40,9 +38,24 @@ const StaffListTable = () => {
                                     <TableCell>{row.userEmail} <br /> {row.userPhone}</TableCell>
                                     <TableCell>{row.userAddress}</TableCell>
                                     {
-                                        (row.userStatus!=="admin")?
-                                        <TableCell>Division: {row.division} <br />District: {row.district} <br />Thana: {row.thana} <br />Union: {row.union} <br />Word No: {row.word}</TableCell>:
+                                        (row.userStatus==="admin") &&
                                         <TableCell>Has no specific area</TableCell>
+                                    }
+                                    {
+                                        (row.userStatus==="Magistrate" || row.userStatus==="Mayor") && 
+                                        <TableCell>Division: {row?.division} <br />District: {row?.district}</TableCell>
+                                    }
+                                    {
+                                        (row.userStatus==="UNO") && 
+                                        <TableCell>Division: {row?.division} <br />District: {row?.district} <br />Thana: {row?.thana}</TableCell>
+                                    }
+                                    {
+                                        (row.userStatus==="Union Chairman") && 
+                                        <TableCell>Division: {row?.division} <br />District: {row?.district} <br />Thana: {row?.thana} <br />Union: {row?.union}</TableCell>
+                                    }
+                                    {
+                                        (row.userStatus==="Word Member") && 
+                                        <TableCell>Division: {row?.division} <br />District: {row?.district} <br />Thana: {row?.thana} <br />Union: {row?.union} <br />Word No: {row?.word}</TableCell>
                                     }
                                 </TableRow>
                             ))
