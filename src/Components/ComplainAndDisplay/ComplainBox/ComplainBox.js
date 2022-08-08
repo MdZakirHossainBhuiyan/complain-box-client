@@ -31,6 +31,8 @@ const ComplainBox = ({state}) => {
         setInputFile(newFile);
     }
 
+    console.log('input file', inputFile);
+
     const handleSubmit = e => {
         e.preventDefault();
         alert("Your to added successfully");
@@ -159,12 +161,16 @@ const ComplainBox = ({state}) => {
                         </div>
                         <div className='complainBox-fileUpload'>
                             <Button variant="contained" component="label" fullWidth>
-                                Upload Image
-                                <input name="image" onChange={handleChange} type="file" hidden/>
+                                Upload Image - 
+                                <input name="image" onChange={handleChange} type="file" hidden required/>
+                                <small>{inputFile?.name}</small>
                             </Button>
                         </div>
                         <div className='complainBox-submit'>
-                            <button>Send</button>
+                            {
+                                (inputFile?.name) &&
+                                <button>Send</button> 
+                            }
                         </div>
                     </form>
                 </div>
