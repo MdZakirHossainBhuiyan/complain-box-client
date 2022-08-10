@@ -11,6 +11,7 @@ import ContactFormMain from './Components/ContactForm/ContactFormMain';
 import DashBoard from './Components/Dashboard/DashBoard';
 import PrivateOutlet from "./Components/PrivateOutlet/PrivateOutlet";
 import StaffListForUser from "./Components/StaffListForUser/StaffListForUser";
+import EmergencyContact from "./Components/EmergencyContact/EmergencyContact";
 
 export const UserContext = createContext();
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="staffList" element={<StaffListForUser />} />
             <Route path="contact" element={<ContactFormMain />} />
             <Route path="dashboard" element={<DashBoard />} />
+            <Route path="emergencyContact" element={<EmergencyContact />} />
           </Route>
         </Routes>
       </Router>

@@ -10,7 +10,13 @@ const DisplayComplainCard = ({complain}) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const handleComplainCardDelete = (id) => {
-        console.log('complain id for delete', id);
+        fetch(`http://localhost:5000/complainDelete/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert('Deleted successfully');
+        })
     }
 
     return (
@@ -31,7 +37,7 @@ const DisplayComplainCard = ({complain}) => {
             <CardMedia
                 component="img"
                 height="194"
-                image={`data:image/png;base64,${complain.image.img}`}
+                image={`data:image/png;base64,${complain?.image?.img}`}
                 alt="Paella dish"
             />
             <CardContent>

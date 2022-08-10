@@ -88,28 +88,28 @@ const ComplainBox = ({state}) => {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className='complainBox-formInputDiv'>
-                            <TextField onBlur={handleBlur} name="complainTitle" id="standard-basic" label="Complain Title" variant="standard" fullWidth />
+                            <TextField onBlur={handleBlur} name="complainTitle" id="standard-basic" label="Complain Title" variant="standard" fullWidth required/>
                         </div>
                         <div className='complainBox-gridInputDiv'>
                             <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="division" id="standard-basic" label="Division" variant="standard" fullWidth />
+                                <TextField onBlur={handleBlur} name="division" id="standard-basic" label="Division" variant="standard" fullWidth required/>
                             </div>
                             <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="district" id="standard-basic" label="District" variant="standard" fullWidth />
+                                <TextField onBlur={handleBlur} name="district" id="standard-basic" label="District" variant="standard" fullWidth required/>
                             </div>
                             <div className='complainBox-formInputDiv'>
-                                <TextField onBlur={handleBlur} name="thana" id="standard-basic" label="Upozila/Thana" variant="standard" fullWidth />
+                                <TextField onBlur={handleBlur} name="thana" id="standard-basic" label="Upozila/Thana" variant="standard" fullWidth required/>
                             </div>
                         </div>
                         <div className='complainBox-gridInputDiv'>
                             <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="union" id="standard-basic" label="Union" variant="standard" fullWidth />
+                                <TextField onBlur={handleBlur} name="union" id="standard-basic" label="Union" variant="standard" fullWidth required/>
                             </div>
                             <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="word" id="standard-basic" label="Word No." variant="standard" fullWidth />
+                                <TextField onBlur={handleBlur} name="word" id="standard-basic" label="Word No." variant="standard" fullWidth required/>
                             </div>
                             <div className='complainBox-formInputDiv'>
-                                <TextField onBlur={handleBlur} name="village" id="standard-basic" label="Village" variant="standard" fullWidth />
+                                <TextField onBlur={handleBlur} name="village" id="standard-basic" label="Village" variant="standard" fullWidth required/>
                             </div>
                         </div>
                         <br />
@@ -122,6 +122,7 @@ const ComplainBox = ({state}) => {
                                     name="seeComplain"
                                     label="Choose Who See Your Complain"
                                     onBlur={handleBlur}
+                                    required
                                 >
                                     <MenuItem value="Magistrate">Magistrate</MenuItem>
                                     <MenuItem value="Mayor">Mayor</MenuItem>
@@ -141,6 +142,7 @@ const ComplainBox = ({state}) => {
                                     defaultValue="yes"
                                     name="identity"
                                     onBlur={handleBlur}
+                                    required
                                 >
                                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -157,6 +159,7 @@ const ComplainBox = ({state}) => {
                                 fullWidth
                                 name="description"
                                 onBlur={handleBlur}
+                                required
                             />
                         </div>
                         <div className='complainBox-fileUpload'>

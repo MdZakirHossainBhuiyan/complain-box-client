@@ -38,3 +38,52 @@
     border: none;
     background-color: orange;
 }
+
+.actionButtonGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.actionButtonStyle{
+    width: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: none;
+    cursor: pointer;
+}
+
+.acceptButton{
+    border: 1px solid gray;
+    color: gray;
+    background-color: none;
+}
+
+.acceptButton:hover{
+    border: 1px solid green;
+    color: green;
+}
+
+.cancelButton{
+    border: 1px solid gray;
+    color: gray;
+    background-color: none;
+}
+
+.cancelButton:hover{
+    border: 1px solid red;
+    color: red;
+}
+
+.forwardButton{
+    border: 1px solid gray;
+    color: gray;
+    background-color: none;
+}
+
+.forwardButton:hover{
+    border: 1px solid rgb(44, 44, 228);
+    color: rgb(44, 44, 228);
+}
