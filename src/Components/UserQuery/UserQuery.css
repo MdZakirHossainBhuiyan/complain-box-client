@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.userQuery-section{
+    width: 100%;
+    height: 500px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.userQuery-leftDiv{
+    width: 70%;
+    padding: 0px 50px 0px 200px;
+}
+
+.userQuery-rightDiv{
+    width: 30%;
+}
+
+.userQuery-rightDiv h4{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.userQuery-rightDiv ul{
+    padding-left: 30px;
+    padding-top: 15px;
+}
+
+.userQuery-rightDiv button{
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.userQueryCard-body{
+    padding-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 20px;
+}
+
+.userQuery-subjectDiv{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.userQuery-contactDiv{
+    margin-bottom: 20px;
+}
+
+.userQuery-bodyDiv{
+    text-align: justify;
+}
+
+.userQuery-ButtonDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.userQuery-ButtonDiv button{
+    margin-top: 30px;
+    border: none;
+    background-color: orange;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+}

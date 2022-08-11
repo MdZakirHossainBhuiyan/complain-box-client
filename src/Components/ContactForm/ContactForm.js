@@ -2,9 +2,11 @@ import { Button, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem,
 import React, { useState } from 'react';
 import './ContactForm.css';
 import contactImage from '../../image/contact.png';
+import thankYouImage from '../../image/thankyou.jpg';
 
 const ContactForm = () => {
     const [inputValue, setInputValue] = useState(null);
+    const [displayForm, setDisplayForm] = useState(true);
 
     const handleBlur = (e) => {
         const newValue = {...inputValue};
@@ -27,7 +29,8 @@ const ContactForm = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('query add successful.');
+            console.log('query add successfully.');
+            setDisplayForm(false);
         })
         .catch((err) => {
             console.error(err);
@@ -40,32 +43,39 @@ const ContactForm = () => {
                 <h5>For Any Query Contact with Us</h5>
             </div>
             <div className='contactForm-form'>
-                <form onSubmit={handleSubmit}>
-                    <div className='contactForm-formInputDiv'>
-                        <TextField onBlur={handleBlur} name="userName" id="standard-basic" label="Full Name" variant="standard" fullWidth />
+                {
+                    (displayForm)?
+                    <form onSubmit={handleSubmit}>
+                        <div className='contactForm-formInputDiv'>
+                            <TextField onBlur={handleBlur} name="userName" id="standard-basic" label="Full Name" variant="standard" fullWidth />
+                        </div>
+                        <div className='contactForm-formInputDiv'>
+                            <TextField onBlur={handleBlur} name="userEmail" id="standard-basic" label="Email" variant="standard" fullWidth />
+                        </div>
+                        <div className='contactForm-formInputDiv'>
+                            <TextField onBlur={handleBlur} name="subject" id="standard-basic" label="Subject" variant="standard" fullWidth />
+                        </div>
+                        <br />
+                        <div className='contactForm-formInputDiv '>
+                            <TextField
+                                id="outlined-multiline-static"
+                                label="Write Here..."
+                                multiline
+                                rows={4}
+                                fullWidth
+                                name="mailBody"
+                                onBlur={handleBlur}
+                            />
+                        </div>
+                        <div className='contactForm-submit'>
+                            <button>Send</button>
+                        </div>
+                    </form>
+                    :
+                    <div>
+                        <img src={thankYouImage} alt="contact image" />
                     </div>
-                    <div className='contactForm-formInputDiv'>
-                        <TextField onBlur={handleBlur} name="userEmail" id="standard-basic" label="Email" variant="standard" fullWidth />
-                    </div>
-                    <div className='contactForm-formInputDiv'>
-                        <TextField onBlur={handleBlur} name="subject" id="standard-basic" label="Subject" variant="standard" fullWidth />
-                    </div>
-                    <br />
-                    <div className='contactForm-formInputDiv '>
-                        <TextField
-                            id="outlined-multiline-static"
-                            label="Write Here..."
-                            multiline
-                            rows={4}
-                            fullWidth
-                            name="mailBody"
-                            onBlur={handleBlur}
-                        />
-                    </div>
-                    <div className='contactForm-submit'>
-                        <button>Send</button>
-                    </div>
-                </form>
+                }
                 <div className='contactForm-img'>
                     <img src={contactImage} alt="contact image" />
                 </div>

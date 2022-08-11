@@ -41,6 +41,12 @@ const DisplayComplainCard = ({complain}) => {
                 alt="Paella dish"
             />
             <CardContent>
+                {
+                    loggedInUser.userStatus==="admin" &&
+                    <Typography>
+                        <small>This complain for <i>{complain?.seeComplain}</i></small>
+                    </Typography>
+                }
                 <Typography variant="h6" color="text.secondary">
                     {complain.complainTitle} {(complain?.status) && <small className='complainStatus'>{complain?.status}</small>}
                 </Typography>

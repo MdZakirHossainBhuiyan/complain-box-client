@@ -35,7 +35,7 @@ const ComplainBox = ({state}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        alert("Your to added successfully");
+        alert("Your complain added successfully");
         const formData = new FormData();
         formData.append('file', inputFile);
         formData.append('userId', _id);

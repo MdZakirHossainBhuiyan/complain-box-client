@@ -8,6 +8,7 @@ import DisplayComplainCard from '../ComplainAndDisplay/DisplayComplainCard/Displ
 import DisplayComplains from '../ComplainAndDisplay/DisplayComplains/DisplayComplains';
 import Lists from '../Lists/Lists';
 import NewComplains from '../NewComplains/NewComplains';
+import UserQuery from '../UserQuery/UserQuery';
 import './DashboardBody.css';
 
 
@@ -19,6 +20,7 @@ const DashboardBody = () => {
     const [displayAdminForm, setDisplayAdminForm] = useState(false);
     const [displayStaffAdmin, setDisplayStaffAdmin] = useState(false);
     const [displayEmergencyContactForm, setDisplayEmergencyContactForm] = useState(false);
+    const [displayQuery, setDisplayUserQuery] = useState(false);
     const [userComplain, setUserComplain] = useState(null);
     const [loader, setLoader] = useState(false);
 
@@ -43,6 +45,7 @@ const DashboardBody = () => {
         setDisplayAdminForm(false);
         setDisplayStaffAdmin(false);
         setDisplayEmergencyContactForm(false);
+        setDisplayUserQuery(false);
     }
 
     const handleAddAdmin = () => {
@@ -52,6 +55,7 @@ const DashboardBody = () => {
         setDisplayStaffForm(false);
         setDisplayStaffAdmin(false)
         setDisplayEmergencyContactForm(false);
+        setDisplayUserQuery(false);
     }
 
     const handleNewComplain = () => {
@@ -61,6 +65,7 @@ const DashboardBody = () => {
         setDisplayAdminForm(false);
         setDisplayStaffAdmin(false)
         setDisplayEmergencyContactForm(false);
+        setDisplayUserQuery(false);
     }
 
     const handleAllComplain = () => {
@@ -70,6 +75,7 @@ const DashboardBody = () => {
         setDisplayStaffForm(false);
         setDisplayStaffAdmin(false);
         setDisplayEmergencyContactForm(false);
+        setDisplayUserQuery(false);
     }
 
     const handleStaffAdmin = () => {
@@ -79,6 +85,7 @@ const DashboardBody = () => {
         setDisplayStaffForm(false);
         setDisplayAllComplain(false);
         setDisplayEmergencyContactForm(false);
+        setDisplayUserQuery(false);
     }
 
     const handleAddEmergencyContact = () => {
@@ -88,6 +95,17 @@ const DashboardBody = () => {
         setDisplayStaffForm(false);
         setDisplayAllComplain(false);
         setDisplayStaffAdmin(false);
+        setDisplayUserQuery(false);
+    }
+
+    const handleUserQuery = () => {
+        (displayQuery)?setDisplayUserQuery(false):setDisplayUserQuery(true);
+        setDisplayNewComplain(false);
+        setDisplayAdminForm(false);
+        setDisplayStaffForm(false);
+        setDisplayAllComplain(false);
+        setDisplayStaffAdmin(false);
+        setDisplayEmergencyContactForm(false);
     }
 
     return (
@@ -113,6 +131,10 @@ const DashboardBody = () => {
                     {
                         (loggedInUser.userStatus==='admin') &&
                         <button className={displayEmergencyContactForm && "activeButton"} onClick={handleAddEmergencyContact}>Add Emergency Contact</button>
+                    }
+                    {
+                        (loggedInUser.userStatus==='admin') &&
+                        <button className={displayQuery && "activeButton"} onClick={handleUserQuery}>User Query</button>
                     }
                 </div>
                 :
@@ -142,6 +164,7 @@ const DashboardBody = () => {
                 {displayAllComplain && <DisplayComplains />}
                 {displayStaffAdmin && <Lists />}
                 {displayEmergencyContactForm && <AddEmergencyContact />}
+                {displayQuery && <UserQuery />}
             </div>
         </div>
     );

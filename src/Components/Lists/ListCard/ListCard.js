@@ -1,5 +1,5 @@
-import { Avatar, Box, Button, ButtonGroup, Card, CardActions, CardContent, Typography } from '@mui/material';
-import React, { useContext } from 'react';
+import { Avatar, Box, Button, Card, CardContent, TextField, Typography } from '@mui/material';
+import React, { useContext, useState } from 'react';
 import '../List.css';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -10,6 +10,16 @@ import { UserContext } from '../../../App';
 
 const ListCard = ({data}) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [displayInputField, setDisplayInputField] = useState(false);
+    const [userValue, setUserValue] = useState(data);
+
+    const handleChange = (e) => {
+        const newValue = {...userValue};
+        newValue[e.target.name] = e.target.value;
+        setUserValue(newValue);
+    }
+
+    console.log('change -- ', userValue.userName);
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/delete/${id}`, {
@@ -21,6 +31,10 @@ const ListCard = ({data}) => {
         })
     }
 
+    const handleUpdate = (id) => {
+        (displayInputField)?setDisplayInputField(false):setDisplayInputField(true);
+    }
+
     return (
         <Card>
             <Box sx={{ display: 'flex', flexDirection: 'column'}}>
@@ -28,9 +42,18 @@ const ListCard = ({data}) => {
                     <Avatar sx={{margin: '10px'}}>
                         <BadgeOutlinedIcon />
                     </Avatar>
-                    <Typography component="div" variant="h5" sx={{color: 'orange'}}>
-                        {data.userName}
-                    </Typography>
+                    {
+                        (!displayInputField) && 
+                        <Typography component="div" variant="h5" sx={{color: 'orange'}}>
+                            {userValue.userName}
+                        </Typography>
+                    }
+                    {
+                        displayInputField &&
+                        <Typography>
+                            <TextField onChange={handleChange} name="userName" id="standard-basic" value={userValue.userName} variant="standard" fullWidth />
+                        </Typography>
+                    }
                     <Typography sx={{color: 'gray'}}>
                         {data.userStatus}
                     </Typography>
@@ -44,12 +67,30 @@ const ListCard = ({data}) => {
             </Box>
             <Box  sx={{ display: 'flex', flexDirection: 'column'}}>
                 <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                       Phone: {data.userPhone}
-                    </Typography>
-                    <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}} >
-                        Address: {data.userAddress}
-                    </Typography>
+                    {
+                        (!displayInputField) && 
+                        <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                            Phone: {data.userPhone}
+                        </Typography>
+                    }
+                    {
+                        (displayInputField) && 
+                        <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                            <TextField name="name" id="standard-basic" value={data.userPhone} variant="standard" fullWidth />
+                        </Typography>
+                    }
+                    {
+                        (!displayInputField) && 
+                        <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}} >
+                            Address: {data.userAddress}
+                        </Typography>
+                    }
+                    {
+                        (displayInputField) && 
+                        <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                            <TextField name="name" id="standard-basic" value={data.userAddress} variant="standard" fullWidth />
+                        </Typography>
+                    }
                     {
                         (data.userStatus!=="admin") &&
                         <Typography sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}> <br /><br />
@@ -91,7 +132,7 @@ const ListCard = ({data}) => {
                 }
                 {
                     loggedInUser?.userStatus==="admin" &&
-                    <Button sx={{border: '1px solid #d3cfcf'}} variant="outlined">
+                    <Button onClick={() => handleUpdate(data._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
                         <UpdateIcon sx={{color: 'gray'}} />
                     </Button>
                 }

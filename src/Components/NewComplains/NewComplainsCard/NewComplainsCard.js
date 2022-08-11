@@ -12,15 +12,13 @@ const NewComplainsCard = ({newComplain}) => {
     const [displayInput, setDisplayInput] = useState(false);
     const [inputValue, setInputValue] = useState(null);
 
-    console.log('forward', inputValue);
-
     const handleAccept = (id) => {
-        fetch(`http://localhost:5000/updateComplainStatus/${id}`, {
+        fetch(`http://localhost:5000/statusUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({newComplain})
+            //body: JSON.stringify({newComplain})
         })
         .then(res => res.json())
         .then(data => {
@@ -53,7 +51,7 @@ const NewComplainsCard = ({newComplain}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/updateComplain/${inputValue.complainId}`, {
+        fetch(`http://localhost:5000/updateComplain/${inputValue?.complainId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
