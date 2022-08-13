@@ -1,5 +1,5 @@
 import { Avatar, Card, CardContent, CardHeader, CardMedia, IconButton, Typography,  } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../NewComplains.css';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -7,8 +7,10 @@ import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import ForwardIcon from '@mui/icons-material/Forward';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { UserContext } from '../../../App';
 
 const NewComplainsCard = ({newComplain}) => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [displayInput, setDisplayInput] = useState(false);
     const [inputValue, setInputValue] = useState(null);
 
@@ -17,8 +19,7 @@ const NewComplainsCard = ({newComplain}) => {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
-            },
-            //body: JSON.stringify({newComplain})
+            }
         })
         .then(res => res.json())
         .then(data => {
@@ -93,6 +94,7 @@ const NewComplainsCard = ({newComplain}) => {
                 <Typography variant="h6" color="text.secondary">
                     {newComplain.complainTitle} {<small className='complainStatus'> {newComplain?.status}</small>}
                     {
+                        loggedInUser?.userStatus==="admin" &&
                         <div className='actionButtonGroup'>
                             <button onClick={() => handleAccept(newComplain?._id)} className='actionButtonStyle acceptButton'><CheckIcon /></button>
                             <button onClick={() => handleCancel(newComplain?._id)} className='actionButtonStyle cancelButton'><ClearIcon /></button>

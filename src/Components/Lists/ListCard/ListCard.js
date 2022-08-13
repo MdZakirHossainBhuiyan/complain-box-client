@@ -19,8 +19,6 @@ const ListCard = ({data}) => {
         setUserValue(newValue);
     }
 
-    console.log('change -- ', userValue.userName);
-
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/delete/${id}`, {
             method: 'DELETE'
@@ -33,6 +31,21 @@ const ListCard = ({data}) => {
 
     const handleUpdate = (id) => {
         (displayInputField)?setDisplayInputField(false):setDisplayInputField(true);
+    }
+
+    const handleUpdateSave = (id) => {
+        fetch(`http://localhost:5000/staffAdminDataUpdate/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userValue)
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert('Updated successfully');
+        })
+        setDisplayInputField(false);
     }
 
     return (
@@ -76,19 +89,19 @@ const ListCard = ({data}) => {
                     {
                         (displayInputField) && 
                         <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                            <TextField name="name" id="standard-basic" value={data.userPhone} variant="standard" fullWidth />
+                            <TextField onChange={handleChange} name="userPhone" id="standard-basic" value={userValue.userPhone} variant="standard" fullWidth />
                         </Typography>
                     }
                     {
                         (!displayInputField) && 
                         <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}} >
-                            Address: {data.userAddress}
+                            Address: {userValue.userAddress}
                         </Typography>
                     }
                     {
                         (displayInputField) && 
                         <Typography sx={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                            <TextField name="name" id="standard-basic" value={data.userAddress} variant="standard" fullWidth />
+                            <TextField onChange={handleChange} name="userAddress" id="standard-basic" value={userValue.userAddress} variant="standard" fullWidth />
                         </Typography>
                     }
                     {
@@ -131,8 +144,12 @@ const ListCard = ({data}) => {
                     </Button>
                 }
                 {
-                    loggedInUser?.userStatus==="admin" &&
+                    (loggedInUser?.userStatus==="admin" && (!displayInputField))?
                     <Button onClick={() => handleUpdate(data._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
+                        <UpdateIcon sx={{color: 'gray'}} />
+                    </Button>
+                    :
+                    <Button onClick={() => handleUpdateSave(userValue._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
                         <UpdateIcon sx={{color: 'gray'}} />
                     </Button>
                 }
