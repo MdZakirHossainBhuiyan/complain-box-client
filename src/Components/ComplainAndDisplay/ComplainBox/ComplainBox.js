@@ -50,7 +50,7 @@ const ComplainBox = ({state}) => {
         formData.append('identity', inputValue.identity);
         formData.append('description', inputValue.description);
 
-        fetch('http://localhost:5000/addComplain', {
+        fetch('https://whispering-mountain-24832.herokuapp.com/addComplain', {
             method: 'POST',
             body: formData
         })

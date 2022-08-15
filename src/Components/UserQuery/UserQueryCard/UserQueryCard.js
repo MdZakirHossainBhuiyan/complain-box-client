@@ -4,7 +4,7 @@ import '../UserQuery.css';
 const UserQueryCard = ({query}) => {
 
     const handleReadingStatus = (id) => {
-        fetch(`http://localhost:5000/readingStatusUpdate/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/readingStatusUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -17,7 +17,7 @@ const UserQueryCard = ({query}) => {
     }
 
     const handleDeleteQuery = (id) => {
-        fetch(`http://localhost:5000/contactDelete/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/contactDelete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

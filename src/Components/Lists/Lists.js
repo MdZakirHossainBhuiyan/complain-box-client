@@ -11,7 +11,7 @@ const Lists = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             setLoader(true);
-            const res = await fetch('http://localhost:5000/userData');
+            const res = await fetch('https://whispering-mountain-24832.herokuapp.com/userData');
             const data = await res.json();
             setAdminData(data.filter(item => item.userStatus==="admin"));
             setStaffData(data.filter(item => (item.userStatus!=="user" && item.userStatus!=="admin")));

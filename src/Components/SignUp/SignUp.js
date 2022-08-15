@@ -21,7 +21,7 @@ const SignUp = () => {
         formData.append('userEmail', userInfo.email);
         formData.append('userPassword', userInfo.password);
 
-        fetch('http://localhost:5000/addUser', {
+        fetch('https://whispering-mountain-24832.herokuapp.com/addUser', {
             method: 'POST',
             body: formData
         })

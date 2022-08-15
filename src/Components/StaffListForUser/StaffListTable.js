@@ -11,7 +11,7 @@ const StaffListTable = () => {
     const [staffListData, setStaffListData] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/userData')
+        fetch('https://whispering-mountain-24832.herokuapp.com/userData')
         .then(response => response.json())
         .then(data => setStaffListData(
             data.filter(staff => staff.userStatus!=="user")

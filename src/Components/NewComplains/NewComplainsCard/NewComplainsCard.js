@@ -15,7 +15,7 @@ const NewComplainsCard = ({newComplain}) => {
     const [inputValue, setInputValue] = useState(null);
 
     const handleAccept = (id) => {
-        fetch(`http://localhost:5000/statusUpdate/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/statusUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,7 @@ const NewComplainsCard = ({newComplain}) => {
     }
 
     const handleCancel = (id) => {
-        fetch(`http://localhost:5000/complainDelete/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/complainDelete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -52,7 +52,7 @@ const NewComplainsCard = ({newComplain}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/updateComplain/${inputValue?.complainId}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/updateComplain/${inputValue?.complainId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -68,7 +68,7 @@ const NewComplainsCard = ({newComplain}) => {
 
     // const handleUpdateStatus = (e) => {
     //     e.preventDefault();
-    //     fetch(`http://localhost:5000/updateComplainStatus/${inputValue?.complainId}`, {
+    //     fetch(`https://whispering-mountain-24832.herokuapp.com/updateComplainStatus/${inputValue?.complainId}`, {
     //         method: 'PUT',
     //         headers: {
     //             'content-type': 'application/json'

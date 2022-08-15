@@ -20,7 +20,7 @@ const ListCard = ({data}) => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -34,7 +34,7 @@ const ListCard = ({data}) => {
     }
 
     const handleUpdateSave = (id) => {
-        fetch(`http://localhost:5000/staffAdminDataUpdate/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/staffAdminDataUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

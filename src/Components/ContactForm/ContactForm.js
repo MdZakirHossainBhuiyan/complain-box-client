@@ -23,7 +23,7 @@ const ContactForm = () => {
         formData.append('subject', inputValue.subject);
         formData.append('mailBody', inputValue.mailBody);
 
-        fetch('http://localhost:5000/addContact', {
+        fetch('https://whispering-mountain-24832.herokuapp.com/addContact', {
             method: 'POST',
             body: formData
         })

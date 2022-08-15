@@ -25,7 +25,7 @@ const AddEmergencyContact = () => {
         formData.append('fire', inputValue.fire);
         formData.append('hospital', inputValue.hospital);
 
-        fetch('http://localhost:5000/addEmergencyContact', {
+        fetch('https://whispering-mountain-24832.herokuapp.com/addEmergencyContact', {
             method: 'POST',
             body: formData
         })

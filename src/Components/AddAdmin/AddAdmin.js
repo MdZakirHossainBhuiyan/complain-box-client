@@ -27,7 +27,7 @@ const AddAdmin = () => {
         formData.append('userAddress', inputValue.address);
         formData.append('userStatus', inputValue.status);
 
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://whispering-mountain-24832.herokuapp.com/addAdmin', {
             method: 'POST',
             body: formData
         })

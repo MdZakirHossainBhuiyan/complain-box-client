@@ -10,7 +10,7 @@ const DisplayComplainCard = ({complain}) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const handleComplainCardDelete = (id) => {
-        fetch(`http://localhost:5000/complainDelete/${id}`, {
+        fetch(`https://whispering-mountain-24832.herokuapp.com/complainDelete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
