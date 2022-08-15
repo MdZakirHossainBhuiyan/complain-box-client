@@ -66,6 +66,22 @@ const NewComplainsCard = ({newComplain}) => {
         setDisplayInput(false);
     }
 
+    // const handleUpdateStatus = (e) => {
+    //     e.preventDefault();
+    //     fetch(`http://localhost:5000/updateComplainStatus/${inputValue?.complainId}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(inputValue)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         alert('Updated successfully');
+    //     })
+    //     setDisplayInput(false);
+    // }
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -131,6 +147,33 @@ const NewComplainsCard = ({newComplain}) => {
                     </form>
                 }
             </CardContent>
+            {/* <CardContent>
+                {
+                    loggedInUser.userStatus!=='admin' && 
+                    <form onSubmit={handleUpdateStatus}>
+                        <div className='complainBox-formInputDiv'>
+                            <FormControl fullWidth>
+                                <InputLabel id="demo-simple-select-label">Update Progress</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    name="status"
+                                    label="Status of Staff"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value="Inquiring">Inquiring</MenuItem>
+                                    <MenuItem value="Processing">Processing</MenuItem>
+                                    <MenuItem value="Working On">Working On</MenuItem>
+                                    <MenuItem value="Completed">Completed</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div className='addStaff-submit'>
+                            <button>Update Status</button>
+                        </div>
+                    </form>
+                }
+            </CardContent> */}
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
                     {newComplain.description}

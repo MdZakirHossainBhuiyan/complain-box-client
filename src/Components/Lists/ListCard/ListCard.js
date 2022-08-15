@@ -144,15 +144,21 @@ const ListCard = ({data}) => {
                     </Button>
                 }
                 {
-                    (loggedInUser?.userStatus==="admin" && (!displayInputField))?
-                    <Button onClick={() => handleUpdate(data._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
-                        <UpdateIcon sx={{color: 'gray'}} />
-                    </Button>
-                    :
-                    <Button onClick={() => handleUpdateSave(userValue._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
-                        <UpdateIcon sx={{color: 'gray'}} />
-                    </Button>
+                    loggedInUser?.userStatus==="admin" &&
+                    <div>
+                        {
+                            (!displayInputField)?
+                            <Button onClick={() => handleUpdate(data._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
+                                <UpdateIcon sx={{color: 'gray'}} />
+                            </Button>
+                            :
+                            <Button onClick={() => handleUpdateSave(userValue._id)} sx={{border: '1px solid #d3cfcf'}} variant="outlined">
+                                <UpdateIcon sx={{color: 'gray'}} />
+                            </Button>
+                        }
+                    </div>
                 }
+                
                 <Button sx={{border: '1px solid #d3cfcf'}} variant="outlined">
                     <SendIcon sx={{color: 'gray'}} />
                 </Button>

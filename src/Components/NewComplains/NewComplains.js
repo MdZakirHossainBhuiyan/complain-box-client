@@ -4,10 +4,11 @@ import { UserContext } from '../../App';
 import './NewComplains.css';
 import NewComplainsCard from './NewComplainsCard/NewComplainsCard';
 
+// const locationArray = ['division', 'district', 'thana', 'union', 'word'];
+
 const NewComplains = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [newComplains, setNewComplains] = useState(null);
-    const [staffComplains, setStaffComplains] = useState(null);
+    const [filteredComplains, setFilteredComplains] = useState(null);
     const [loader, setLoader] = useState(false);
 
     useEffect(() => {
@@ -16,16 +17,48 @@ const NewComplains = () => {
 
             const res = await fetch('http://localhost:5000/comlains');
             const data = await res.json();
-            setNewComplains(data.filter(item => item.status==="pending"));
-            setStaffComplains(data.filter(item2 => item2.seeComplain===loggedInUser.userStatus));
+            
+            if(loggedInUser.userStatus==='admin'){
+                setFilteredComplains(data.filter(item => item.status==="pending"));
+            }
+            else if(loggedInUser.userStatus==='Magistrate'){
+                setFilteredComplains(data.filter(item => item.seeComplain===loggedInUser.userStatus && item.division===loggedInUser.division && item.district===loggedInUser.district && item.status!=="pending"));
+            }
+            else if(loggedInUser.userStatus==='Mayor'){
+                setFilteredComplains(data.filter(item => item.seeComplain===loggedInUser.userStatus && item.division===loggedInUser.division && item.district===loggedInUser.district && item.status!=="pending"));
+            }
+            else if(loggedInUser.userStatus==='UNO'){
+                setFilteredComplains(data.filter(item => item.seeComplain===loggedInUser.userStatus && item.division===loggedInUser.division && item.district===loggedInUser.district && item.thana===loggedInUser.thana && item.status!=="pending"));
+            }
+            else if(loggedInUser.userStatus==='Union Chairman'){
+                setFilteredComplains(data.filter(item => item.seeComplain===loggedInUser.userStatus && item.division===loggedInUser.division && item.district===loggedInUser.district && item.thana===loggedInUser.thana && item.union===loggedInUser.union && item.status!=="pending"));
+            }
+            else if(loggedInUser.userStatus==='Word Member'){
+                setFilteredComplains(data.filter(item => item.seeComplain===loggedInUser.userStatus && item.division===loggedInUser.division && item.district===loggedInUser.district && item.thana===loggedInUser.thana && item.word===loggedInUser.word && item.status!=="pending"));
+            }
+
+            // for(let i=0; i<data?.length; i++){
+            //     if(data[i].seeComplain!==loggedInUser.userStatus){
+            //         continue;
+            //     }
+            //     let flag = true;
+            //     for(let key in data[i]){
+            //         for(let userKey in loggedInUser){
+            //             if(loggedInUser[userKey] !==null && locationArray.includes(key) && key===userKey && data[i][key]!==loggedInUser[userKey]){
+            //                 flag = false;
+            //             }
+            //         }
+            //     }
+            //     if(flag){
+            //         staffComplains(data[i]);
+            //     }
+            // }
 
             setLoader(false);
         }
 
         fetchNewComplainsData();
     }, [])
-
-    console.log('staff complain', staffComplains)
 
     return (
         <section className='newComplain-section'>
@@ -41,7 +74,7 @@ const NewComplains = () => {
                 (loader)?<CircularProgress />:
                 <div className='newComplain-content'>
                     {
-                        (newComplains?.length!==0 && !loader)?newComplains?.map(newComplain => <NewComplainsCard newComplain={newComplain} />):<p style={{"marginTop": "50px"}}>You have no Complain</p>
+                        (filteredComplains?.length!==0 && !loader)?filteredComplains?.map(newComplain => <NewComplainsCard newComplain={newComplain} />):<p style={{"marginTop": "50px"}}>You have no Complain</p>
                     }
                 </div>
             }

@@ -31,8 +31,6 @@ const ComplainBox = ({state}) => {
         setInputFile(newFile);
     }
 
-    console.log('input file', inputFile);
-
     const handleSubmit = e => {
         e.preventDefault();
         alert("Your complain added successfully");
