@@ -8,17 +8,28 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import { FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import { UserContext } from '../../../App';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import { Box, Modal, } from '@mui/material';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 700,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+};
 
 const ComplainBox = ({state}) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const {_id, userName, userEmail} = loggedInUser;
-    const [isDisplay, setIsDisplay] = useState(false);
     const [inputValue, setInputValue] = useState(null);
     const [inputFile, setInputFile] = useState(null);
-
-    const handleDisplay = () => {
-        (isDisplay)?setIsDisplay(false):setIsDisplay(true);
-    }
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const handleBlur = e => {
         const allValue = {...inputValue};
@@ -63,120 +74,128 @@ const ComplainBox = ({state}) => {
         .catch( (err) => {
             console.error(err);
         });
-
-        setIsDisplay(false);
     }
 
     return (
         <section className='complainBox-section'>
-            {
-                (loggedInUser.userStatus==="user") && <div className='complainBox-displayButton'>
-                    <button onClick={handleDisplay}>
-                        {
-                            isDisplay?"Hide Complain Box":"Create Your Own Complain"
-                        }
-                    </button>
-                </div>
-            }
-            {
-                isDisplay && 
-                <div className='complainBox-form'>
-                    <div className='complainBox-header'>
-                        <h5>Drop Your Complain</h5>
+            <div className='complainBoxCreateButton'>
+                <div className='complainBoxContent'>
+                    <div className='textArea'>
+                        <p>Feel free to drop your complaint. <br /> We are committed to solving your problem as soon as possible</p>
                     </div>
-                    <form onSubmit={handleSubmit}>
-                        <div className='complainBox-formInputDiv'>
-                            <TextField onBlur={handleBlur} name="complainTitle" id="standard-basic" label="Complain Title" variant="standard" fullWidth required/>
-                        </div>
-                        <div className='complainBox-gridInputDiv'>
-                            <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="division" id="standard-basic" label="Division" variant="standard" fullWidth required/>
+                    <div>
+                        {
+                            (loggedInUser.userStatus==="user") && <div className='complainBox-displayButton'>
+                                <button onClick={handleOpen}>
+                                    Create Your Own Complain
+                                    <AddCircleOutlineIcon style={{marginLeft: "15px"}} />
+                                </button>
                             </div>
-                            <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="district" id="standard-basic" label="District" variant="standard" fullWidth required/>
-                            </div>
-                            <div className='complainBox-formInputDiv'>
-                                <TextField onBlur={handleBlur} name="thana" id="standard-basic" label="Upozila/Thana" variant="standard" fullWidth required/>
-                            </div>
-                        </div>
-                        <div className='complainBox-gridInputDiv'>
-                            <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="union" id="standard-basic" label="Union" variant="standard" fullWidth required/>
-                            </div>
-                            <div className='complainBox-formInputDiv complainBox-fieldGap'>
-                                <TextField onBlur={handleBlur} name="word" id="standard-basic" label="Word No." variant="standard" fullWidth required/>
-                            </div>
-                            <div className='complainBox-formInputDiv'>
-                                <TextField onBlur={handleBlur} name="village" id="standard-basic" label="Village" variant="standard" fullWidth required/>
-                            </div>
-                        </div>
-                        <br />
-                        <div className='complainBox-formInputDiv'>
-                            <FormControl fullWidth>
-                                <InputLabel id="demo-simple-select-label">Choose Who See Your Complain</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    name="seeComplain"
-                                    label="Choose Who See Your Complain"
-                                    onBlur={handleBlur}
-                                    required
-                                >
-                                    <MenuItem value="Magistrate">Magistrate</MenuItem>
-                                    <MenuItem value="Mayor">Mayor</MenuItem>
-                                    <MenuItem value="UNO">UNO</MenuItem>
-                                    <MenuItem value="Union Chairman">Union Chairman</MenuItem>
-                                    <MenuItem value="Word Member">Word Member</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </div>
-                        <br />
-                        <div>
-                            <FormControl style={{"display": "flex", "flexDirection": "row","alignItems": "center", "justifyContent": "center"}}>
-                                <FormLabel id="demo-row-radio-buttons-group-label"> Desire To Show Your Own Identity? <span style={{"paddingRight": "10px"}}></span> </FormLabel>
-                                <RadioGroup
-                                    row
-                                    aria-labelledby="demo-row-radio-buttons-group-label"
-                                    defaultValue="yes"
-                                    name="identity"
-                                    onBlur={handleBlur}
-                                    required
-                                >
-                                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                                </RadioGroup>
-                            </FormControl>
-                        </div>
-                        <br />
-                        <div className='complainBox-formInputDiv '>
-                            <TextField
-                                id="outlined-multiline-static"
-                                label="Describe Your Complain"
-                                multiline
-                                rows={4}
-                                fullWidth
-                                name="description"
-                                onBlur={handleBlur}
-                                required
-                            />
-                        </div>
-                        <div className='complainBox-fileUpload'>
-                            <Button variant="contained" component="label" fullWidth>
-                                Upload Image - 
-                                <input name="image" onChange={handleChange} type="file" hidden required/>
-                                <small>{inputFile?.name}</small>
-                            </Button>
-                        </div>
-                        <div className='complainBox-submit'>
-                            {
-                                (inputFile?.name) &&
-                                <button>Send</button> 
-                            }
-                        </div>
-                    </form>
+                        }
+                    </div>
                 </div>
-            }
-            
+                <div className='complainBoxOverlyColor'></div>
+            </div>
+            <div className='modalArea'>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <h2 id="parent-modal-title">Drop Your Complain</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className='complainBox-formInputDiv'>
+                                <TextField onBlur={handleBlur} name="complainTitle" id="standard-basic" label="Complain Title" variant="standard" fullWidth required/>
+                            </div>
+                            <div className='complainBox-gridInputDiv'>
+                                <div className='complainBox-formInputDiv complainBox-fieldGap'>
+                                    <TextField onBlur={handleBlur} name="division" id="standard-basic" label="Division" variant="standard" fullWidth required/>
+                                </div>
+                                <div className='complainBox-formInputDiv complainBox-fieldGap'>
+                                    <TextField onBlur={handleBlur} name="district" id="standard-basic" label="District" variant="standard" fullWidth required/>
+                                </div>
+                                <div className='complainBox-formInputDiv'>
+                                    <TextField onBlur={handleBlur} name="thana" id="standard-basic" label="Upozila/Thana" variant="standard" fullWidth required/>
+                                </div>
+                            </div>
+                            <div className='complainBox-gridInputDiv'>
+                                <div className='complainBox-formInputDiv complainBox-fieldGap'>
+                                    <TextField onBlur={handleBlur} name="union" id="standard-basic" label="Union" variant="standard" fullWidth required/>
+                                </div>
+                                <div className='complainBox-formInputDiv complainBox-fieldGap'>
+                                    <TextField onBlur={handleBlur} name="word" id="standard-basic" label="Word No." variant="standard" fullWidth required/>
+                                </div>
+                                <div className='complainBox-formInputDiv'>
+                                    <TextField onBlur={handleBlur} name="village" id="standard-basic" label="Village" variant="standard" fullWidth required/>
+                                </div>
+                            </div>
+                            <div className='complainBox-formInputDiv'>
+                                <FormControl fullWidth>
+                                    <InputLabel id="demo-simple-select-label">Choose Who See Your Complain</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        name="seeComplain"
+                                        label="Choose Who See Your Complain"
+                                        onBlur={handleBlur}
+                                        required
+                                    >
+                                        <MenuItem value="Magistrate">Magistrate</MenuItem>
+                                        <MenuItem value="Mayor">Mayor</MenuItem>
+                                        <MenuItem value="UNO">UNO</MenuItem>
+                                        <MenuItem value="Union Chairman">Union Chairman</MenuItem>
+                                        <MenuItem value="Word Member">Word Member</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+                            <div>
+                                <FormControl style={{"display": "flex", "flexDirection": "row","alignItems": "center", "justifyContent": "center"}}>
+                                    <FormLabel id="demo-row-radio-buttons-group-label"> Desire To Show Your Own Identity? <span style={{"paddingRight": "10px"}}></span> </FormLabel>
+                                    <RadioGroup
+                                        row
+                                        aria-labelledby="demo-row-radio-buttons-group-label"
+                                        defaultValue="yes"
+                                        name="identity"
+                                        onBlur={handleBlur}
+                                        required
+                                    >
+                                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                                    </RadioGroup>
+                                </FormControl>
+                            </div>
+                            <div className='complainBox-formInputDiv '>
+                                <TextField
+                                    id="outlined-multiline-static"
+                                    label="Describe Your Complain"
+                                    multiline
+                                    rows={2}
+                                    fullWidth
+                                    name="description"
+                                    onBlur={handleBlur}
+                                    required
+                                />
+                            </div>
+                            <div className='complainBox-fileUpload'>
+                                <Button variant="contained" component="label" fullWidth>
+                                    Upload Image - 
+                                    <input name="image" onChange={handleChange} type="file" hidden required/>
+                                    <small>{inputFile?.name}</small>
+                                </Button>
+                            </div>
+                            <div className='complainBox-submit'>
+                                {
+                                    (inputFile?.name) &&
+                                    <button className='modalButton'>Send</button> 
+                                }
+                                <button onClick={handleClose} variant="outlined">Close</button>
+                            </div>
+                        </form>
+                    </Box>
+                </Modal>
+            </div>
         </section>
     );
 };

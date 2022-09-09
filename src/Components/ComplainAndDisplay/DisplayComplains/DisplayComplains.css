@@ -10,19 +10,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.displayComplain-header h5{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    color: rgb(70, 69, 69);
-    margin: 60px 0px 30px 0px;
+    margin-top: 30px;
+    padding: 20px 0px;
 }
 
 .displayComplain-content{
     display: grid;
     grid: auto/auto auto auto;
     gap: 10px;
-    margin: 0px 150px;
+    margin: 0px 25px;
     margin-bottom: 30px;
+}
+
+.paginationButton{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginationButton button{
+    height: 100px;
+    width: 100px;
+    background-color: transparent;
+    border: none;
+    color: orange;
+    cursor: pointer;
+}
+
+.paginationButton p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
 }

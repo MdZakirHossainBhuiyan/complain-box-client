@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.complainBoxBody{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerComponent{
+    width: 100%;
+    height: 300px;
+}
+
+.timerBox{
+    width: 60%;
+    height: 50px;
+    background-color: #fff;
+    margin: -25px 0px 0px 0px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 3px gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+}
+
+.clockArea{
+    width: 33%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-right: 2px solid orange;
+}
+
+.iconStyleClock{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.clockArea p{
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.weekDayArea{
+    width: 34%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.weekDayArea p{
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.dateArea{
+    width: 33%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    border-left: 2px solid orange;
+}
+
+.dateArea p{
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.iconStyleDate{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.complainsList{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 2px 2px 4px rgb(211, 208, 208);
+}

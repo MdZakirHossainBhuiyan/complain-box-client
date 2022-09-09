@@ -4,18 +4,93 @@
 }
 
 .footer-section{
+    margin-top: 30px;
     width: 100%;
     height: auto;
-    background-color: #F0F0F0;
-    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerContentArea{
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    justify-content: space-around;
+    background-image: url("../../image//display//coverBG2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footerContentArea::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.socialLink{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    z-index: 1;
+}
+
+.socialLink h3{
+    color: orange;
+    font-size: 33px;
+    margin-bottom: 30px;
+}
+
+.socialLink p{
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.socialIcon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.companyInfo{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    z-index: 1;
+    padding-top: 20px;
+}
+
+.companyInfo h3{
+    color: orange;
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.companyInfo p{
+    padding-bottom: 5px;
 }
 
 .footer-div{
+    width: 100%;
+    padding: 10px 0px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:center;
-    color: rgb(70, 67, 67);
+    color: #fff;
+    background-color: black;
 }
 
 .footer-div p{

@@ -20,7 +20,15 @@ const DisplayComplainCard = ({complain}) => {
     }
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card
+            sx={{
+                maxWidth: 345,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between"
+            }}
+        >
+            <div>
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe">
@@ -47,7 +55,7 @@ const DisplayComplainCard = ({complain}) => {
                         <small>This complain for <i>{complain?.seeComplain}</i></small>
                     </Typography>
                 }
-                <Typography variant="h6" color="text.secondary">
+                <Typography style={{ height: "65px"}} variant="h6" color="text.secondary">
                     {complain.complainTitle} {(complain?.status) && <small className='complainStatus'>{complain?.status}</small>}
                 </Typography>
             </CardContent>
@@ -56,6 +64,8 @@ const DisplayComplainCard = ({complain}) => {
                     {complain.description}
                 </Typography>
             </CardContent>
+            </div>
+            <div>
             <CardContent style={{"display": "flex", "flexDirection": "row", "alignItems": "center", "justifyContent": "center"}}>
                 <Avatar aria-label="recipe">
                     <LocationOnIcon />
@@ -64,6 +74,9 @@ const DisplayComplainCard = ({complain}) => {
                     {complain.village}, {complain.union}, {complain.thana}, {complain.district}, {complain.division}
                 </Typography>
             </CardContent>
+            </div>
+            
+            
         </Card>
     );
 };

@@ -5,7 +5,51 @@
 
 .complainBox-section{
     width: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.complainBoxCreateButton{
+    background-image: url("../../../image/display//coverBG2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    width: 900px;
+    height: 120px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    margin-top: 50px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.complainBoxOverlyColor{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+    position: absolute;
+}
+
+.complainBoxContent{
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.textArea{
+    color: #fff;
 }
 
 .complainBox-displayButton{
@@ -13,21 +57,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding-top: 90px;
 }
 
 .complainBox-displayButton button{
     border: none;
-    background-color: rgb(54, 203, 240);
-    padding: 10px 50px;
+    background-color: orange;
+    color: #fff;
+    padding: 10px 30px;
     font-weight: 700;
-}
-
-.complainBox-displayButton button:hover{
-    background-color: rgb(79, 191, 219);
-    letter-spacing: 1px;
-    transition-duration: 1s;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 .complainBox-header{
@@ -41,6 +84,10 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
     margin-bottom: 30px;
+}
+
+.modalArea{
+    border-radius: 10px;
 }
 
 .complainBox-form{
@@ -86,7 +133,6 @@
 
 .complainBox-fileUpload input{
     border: none;
-
 }
 
 .complainBox-submit{
@@ -97,17 +143,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .complainBox-submit button{
-    background-color: rgb(54, 203, 240);
+    background-color: orange;
     border: none;
     padding: 10px 80px;
     cursor: pointer;
 }
 
-.complainBox-submit button:hover{
-    background-color: aqua;
-    transition-duration: 1s;
+.modalButton{
+    margin-right: 10px;
 }
