@@ -139,9 +139,6 @@ const DashboardBody = () => {
                 </div>
                 :
                 <div className='userDashBoard-contentBody'>
-                    <div className='userDashBoard-contentHeader'>
-                        <h5>Your Complains List</h5>
-                    </div>
                     {
                         (!loader)?
                         <div className="userComplain-cardBody">

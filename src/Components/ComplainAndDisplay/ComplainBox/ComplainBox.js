@@ -84,14 +84,12 @@ const ComplainBox = ({state}) => {
                         <p>Feel free to drop your complaint. <br /> We are committed to solving your problem as soon as possible</p>
                     </div>
                     <div>
-                        {
-                            (loggedInUser.userStatus==="user") && <div className='complainBox-displayButton'>
-                                <button onClick={handleOpen}>
-                                    Create Your Own Complain
-                                    <AddCircleOutlineIcon style={{marginLeft: "15px"}} />
-                                </button>
-                            </div>
-                        }
+                        <div className='complainBox-displayButton'>
+                            <button onClick={handleOpen}>
+                                Create Your Own Complain
+                                <AddCircleOutlineIcon style={{marginLeft: "15px"}} />
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className='complainBoxOverlyColor'></div>

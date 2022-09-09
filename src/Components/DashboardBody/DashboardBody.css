@@ -4,7 +4,7 @@
 }
 
 .dashboardBody-mainDiv{
-    padding-top: 60px;
+    margin-top: -12px;
     display: flex;
     flex-direction: column;
 }
@@ -16,7 +16,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    /* position: fixed; */
     z-index: 1;
 }
 
