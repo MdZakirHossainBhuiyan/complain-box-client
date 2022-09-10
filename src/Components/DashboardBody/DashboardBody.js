@@ -25,6 +25,10 @@ const DashboardBody = () => {
     const [acceptedComplain, setAcceptedComplain] = useState(null);
     const [loader, setLoader] = useState(false);
 
+    // const [total, setTotal] = useState(0);
+    // const [accepted, setAccepted] = useState(0);
+    // const [pending, setPending] = useState(0);
+
     useEffect(() => {
         const fetchComplainsData = async () => {
             setLoader(true);
@@ -39,6 +43,16 @@ const DashboardBody = () => {
 
         fetchComplainsData();
     }, [loggedInUser.userEmail])
+
+    let total = 0;
+    let accepted = 0;
+    let pending = 0;
+
+    if(userComplain){
+        total = userComplain?.length;
+        accepted = acceptedComplain?.length;
+        pending = (userComplain?.length) - (acceptedComplain?.length);
+    }
 
     const handleAddStaff = () => {
         (displayStaffForm)?setDisplayStaffForm(false):setDisplayStaffForm(true);
@@ -145,13 +159,13 @@ const DashboardBody = () => {
                         <h1>Your Complains</h1>
                         <div className='countContent'>
                             <div className='countType'>
-                                <h5>Total: <span className='total'>{userComplain?.length}</span></h5>
+                                <h5>Total: <span className='total'>{total}</span></h5>
                             </div>
                             <div className='countType'>
-                                <h5>Accepted: <span className='accepted'>{acceptedComplain?.length}</span></h5>
+                                <h5>Accepted: <span className='accepted'>{accepted}</span></h5>
                             </div>
                             <div className='countType'>
-                                <h5>Pending: <span className='pending'>{(userComplain?.length)-(acceptedComplain?.length)}</span></h5>
+                                <h5>Pending: <span className='pending'>{pending}</span></h5>
                             </div>
                         </div>
                     </div>
