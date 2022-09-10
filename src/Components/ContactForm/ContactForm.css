@@ -3,9 +3,117 @@
     padding: 0;
 }
 
-.contactForm-section{
+.contactFormArea{
     width: 100%;
-    position: relative;
+    height: auto;
+    background-color: #fff;
+    margin-bottom: -30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactFormHeading{
+    width: 80%;
+    height: auto;
+    margin: 60px 0px 55px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.headingLeftSide{
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.headingRightSide{
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.headingLeftSide h3{
+    color: rgb(63, 54, 54);
+}
+
+.divLine{
+    width: 60px;
+    transform: rotate(90deg);
+    border: 2px solid orange;
+    border-bottom: hidden;
+}
+
+.headingRightSide p{
+    font-size: 15px;
+    color: gray;
+}
+
+.contactFormItem{
+    width: 80%;
+    height: auto;
+    margin: 15px 0px 30px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contactFormContent{
+    width: 33.3%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentIcon{
+    width: 40px;
+    height: 40px;
+    background-color: orange;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.contactFormInfo h3{
+    font-size: 15px;
+    color: rgb(63, 54, 54);
+}
+
+.contactFormInfo h3 span{
+    color: gray;
+}
+
+.contactFormSection{
+    width: 80%;
+    height: 500px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 4px 4px 8px gray;
+    display: flex;
+    flex-direction: row;
+}
+
+.contactForm{
+    width: 50%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.formBody{
+    width: 100%;
+    padding: 30px;
+    color: #fff;
 }
 
 .contactForm-header{
@@ -47,15 +155,6 @@
     justify-content: space-between;
 }
 
-.contactForm-form form{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
 .contactForm-formInputDiv{
     width: 100%;
     margin-bottom: 20px;
@@ -73,13 +172,45 @@
 }
 
 .contactForm-submit button{
-    background-color: rgb(54, 203, 240);
+    background-color: orange;
+    color: #fff;
     border: none;
-    padding: 10px 80px;
+    width: 150px;
+    padding: 10px 10px;
     cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .contactForm-submit button:hover{
-    background-color: aqua;
-    transition-duration: 1s;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.thankYouMsg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thankYouMsg img{
+    width: 60%;
+    height: auto;
+}
+
+.formMap{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.formMap iframe{
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
 }

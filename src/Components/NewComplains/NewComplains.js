@@ -4,8 +4,6 @@ import { UserContext } from '../../App';
 import './NewComplains.css';
 import NewComplainsCard from './NewComplainsCard/NewComplainsCard';
 
-// const locationArray = ['division', 'district', 'thana', 'union', 'word'];
-
 const NewComplains = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [filteredComplains, setFilteredComplains] = useState(null);
@@ -62,14 +60,14 @@ const NewComplains = () => {
 
     return (
         <section className='newComplain-section'>
-            <div className='newComplain-header'>
+            {/* <div className='newComplain-header'>
                 {
                     (loggedInUser?.userStatus==='admin') && <h1>New Complains</h1>
                 }
                 {
                     (loggedInUser?.userStatus!=='admin' && loggedInUser?.userStatus!=='user') && <h1>Your Complains</h1>
                 }
-            </div>
+            </div> */}
             {
                 (loader)?<CircularProgress />:
                 <div className='newComplain-content'>

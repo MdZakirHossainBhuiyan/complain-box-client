@@ -48,6 +48,7 @@ const UserSignIn = () => {
             <div className='userSignInPageBody'>
                 <div className='loginPageImage'>
                     <img src={loginPageCover} alt="login cover" />
+                    <div className='signInOverly'></div>
                 </div>
 
                 <div className='loginPageForm'>
@@ -107,7 +108,7 @@ const UserSignIn = () => {
                                     </Grid>
                                 </Box>
                             </Box>
-                            <Box style={{"color": "gray"}}>
+                            {/* <Box style={{"color": "gray"}}>
                                 <h3 style={{"textAlign": "center", "marginTop": "30px", "fontSize": "15px"}}>For Test Visit</h3>
                                 <div style={{"display": "flex", "flexDirection": "row"}}>
                                     <div>
@@ -126,7 +127,7 @@ const UserSignIn = () => {
                                         <p style={{"fontSize": "12px", "paddingLeft": "25px"}}>Pass: 456</p>
                                     </div>
                                 </div>
-                            </Box>
+                            </Box> */}
                         </Container>
                     </ThemeProvider>
                 </div>

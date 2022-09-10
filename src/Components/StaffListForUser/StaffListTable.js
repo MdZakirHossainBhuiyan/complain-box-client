@@ -9,25 +9,34 @@ import Paper from '@mui/material/Paper';
 
 const StaffListTable = () => {
     const [staffListData, setStaffListData] = useState(null);
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
-        fetch('https://whispering-mountain-24832.herokuapp.com/userData')
-        .then(response => response.json())
-        .then(data => setStaffListData(
-            data.filter(staff => staff.userStatus!=="user")
-        ));
+        const fetchUserData = async () => {
+            setLoader(true);
+
+            const response = await fetch('https://whispering-mountain-24832.herokuapp.com/userData');
+            const data = await response.json();
+            setStaffListData(
+                data.filter(staff => staff.userStatus!=="user")
+            );
+
+            setLoader(false);
+        }
+
+        fetchUserData();
     }, [])
 
     return (
         <div className='staffListForUser-body'>
             <TableContainer component={Paper}>
-                <Table sx={{minWidth: 650, margin: "100px", width:"85%"}} aria-label="caption table">
-                    <TableHead>
+                <Table sx={{minWidth: 650, width:"100%"}} aria-label="caption table">
+                    <TableHead style={{backgroundColor: "orange"}}>
                         <TableRow>
-                            <TableCell align="center">Name</TableCell>
-                            <TableCell align="center">Contact</TableCell>
-                            <TableCell align="center">Address</TableCell>
-                            <TableCell align="center">Area</TableCell>
+                            <TableCell style={{color: "#fff", fontSize: "17px"}} align="center">Name</TableCell>
+                            <TableCell style={{color: "#fff", fontSize: "17px"}} align="center">Contact</TableCell>
+                            <TableCell style={{color: "#fff", fontSize: "17px"}} align="center">Address</TableCell>
+                            <TableCell style={{color: "#fff", fontSize: "17px"}} align="center">Area</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

@@ -4,25 +4,24 @@
 }
 
 .dashboardBody-mainDiv{
-    margin-top: -12px;
+    margin-top: -30px;
     display: flex;
     flex-direction: column;
 }
 
 .dashboardBody-navBar{
     width: 100%;
-    height: 30px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* position: fixed; */
     z-index: 1;
 }
 
 .dashboardBody-navBar button{
     text-align: center;
-    padding: 10px 50px;
+    padding: 20px 50px;
     border: none;
     font-family: 'Times New Roman', Times, serif;
     font-size: 14px;
@@ -46,6 +45,52 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 70px;
+}
+
+.userDashBoardBody{
+    background-color: beige;
+    width: 75%;
+    height: 60px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userDashBoardBody h1{
+    color: gray;
+}
+
+.countContent{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.countType h5{
+    font-size: 15px;
+    color: gray;
+}
+
+.countType .total{
+    font-size: 35px;
+    color: orange;
+}
+
+.countType .accepted{
+    font-size: 35px;
+    color: green;
+}
+
+.countType .pending{
+    font-size: 35px;
+    color: red;
 }
 
 .userDashBoard-contentHeader h5{

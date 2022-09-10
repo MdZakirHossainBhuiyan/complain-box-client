@@ -8,6 +8,8 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import { UserContext } from '../../../App';
 
+import adminImage from '../../../image/display/adminImage.jpg';
+
 const ListCard = ({data}) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [displayInputField, setDisplayInputField] = useState(false);
@@ -159,11 +161,40 @@ const ListCard = ({data}) => {
                     </div>
                 }
                 
-                <Button sx={{border: '1px solid #d3cfcf'}} variant="outlined">
+                {/* <Button sx={{border: '1px solid #d3cfcf'}} variant="outlined">
                     <SendIcon sx={{color: 'gray'}} />
-                </Button>
+                </Button> */}
             </Stack>
         </Card>
+
+        // <div className='card'>
+        //     <div className='imgBox'>
+        //         <img src={adminImage} alt="img" />
+        //     </div>
+        //     <div className='content'>
+        //         <div className='details'>
+        //             <h2>{userValue.userName}<br /><span>{userValue.userStatus}</span></h2>
+        //             <div className='data'>
+        //                 <h3>Phone: <span>{userValue.userPhone}</span></h3>
+        //                 <h3>Address: <span>{userValue.userAddress}</span></h3>
+        //             </div>
+        //             <div className='actionButton'>
+        //                 {
+        //                     loggedInUser?.userStatus==="admin"?
+        //                     <button>Delete <DeleteIcon style={{"marginLeft": "10px"}} /></button>
+        //                     :
+        //                     <button disabled>Delete <DeleteIcon style={{"marginLeft": "10px"}} /></button>
+        //                 }
+        //                 {
+        //                     loggedInUser?.userStatus==="admin"?
+        //                     <button>Update <UpdateIcon style={{"marginLeft": "10px"}} /></button>
+        //                     :
+        //                     <button disabled>Update <UpdateIcon style={{"marginLeft": "10px"}} /></button>
+        //                 }
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>
     );
 };
 

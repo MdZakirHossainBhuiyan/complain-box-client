@@ -19,27 +19,27 @@ const EmergencyContactContent = () => {
 
     return (
         <div className='emergencyContact-body'>
-        <TableContainer component={Paper}>
-            <Table sx={{minWidth: 650, margin: "100px", width:"85%"}} aria-label="caption table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell align="center">Location</TableCell>
-                        <TableCell align="center">Emergency Contact</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {
-                        emergencyContactData?.map((row) => (
-                            <TableRow key={row._id}>
-                                <TableCell style={{"textAlign": "center"}}>{row.location}</TableCell>
-                                <TableCell style={{"textAlign": "center"}}>Police Station: {row?.police} <br />Fire Station: {row?.fire} <br />Hospital: {row?.hospital}</TableCell>
-                            </TableRow>
-                        ))
-                    }
-                </TableBody>
-            </Table>
-        </TableContainer>
-    </div>
+            <TableContainer component={Paper}>
+                <Table sx={{minWidth: 650, width:"100%"}} aria-label="caption table">
+                    <TableHead style={{backgroundColor: "orange"}}>
+                        <TableRow>
+                            <TableCell style={{color: "#fff", fontSize: "17px"}} align="center">Location</TableCell>
+                            <TableCell style={{color: "#fff", fontSize: "17px"}} align="center">Emergency Contact</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {
+                            emergencyContactData?.map((row) => (
+                                <TableRow key={row._id}>
+                                    <TableCell style={{"textAlign": "center"}}>{row.location}</TableCell>
+                                    <TableCell style={{"textAlign": "center"}}>Police Station: {row?.police} <br />Fire Station: {row?.fire} <br />Hospital: {row?.hospital}</TableCell>
+                                </TableRow>
+                            ))
+                        }
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
     );
 };
 

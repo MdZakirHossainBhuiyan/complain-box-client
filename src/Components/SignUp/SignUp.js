@@ -42,6 +42,7 @@ const SignUp = () => {
             <div className='userSignInPageBody'>
                 <div className='loginPageImage'>
                     <img src={loginPageCover} alt="login cover" />
+                    <div className='signInOverly'></div>
                 </div>
                 <div className='loginPageForm'>
                     <ThemeProvider theme={theme}>

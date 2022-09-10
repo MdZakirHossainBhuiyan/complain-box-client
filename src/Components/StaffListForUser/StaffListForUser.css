@@ -3,10 +3,17 @@
     padding: 0;
 }
 
+.staffListTableArea{
+    width: 100%;
+    height: auto;
+    background-color: gray;
+    margin-bottom: -30px;
+}
+
 .staffListForUser-body{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 300px 0px;
+    padding: 30px 100px;
 }

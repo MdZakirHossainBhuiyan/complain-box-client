@@ -35,15 +35,27 @@
     justify-content: center;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
-    background-color: red;
+    /* background-color: red; */
     background-image: radial-gradient(circle at bottom left,
     red,
-    green 50%);
+    green 70%);
+    position: relative;
+}
+
+.signInOverly{
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+    position: absolute;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
 }
 
 .loginPageImage img{
     width: 400px;
     height: 550px;
+    z-index: 1;
 }
 
 .loginPageForm{

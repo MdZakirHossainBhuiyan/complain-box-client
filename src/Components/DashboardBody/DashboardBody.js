@@ -22,6 +22,7 @@ const DashboardBody = () => {
     const [displayEmergencyContactForm, setDisplayEmergencyContactForm] = useState(false);
     const [displayQuery, setDisplayUserQuery] = useState(false);
     const [userComplain, setUserComplain] = useState(null);
+    const [acceptedComplain, setAcceptedComplain] = useState(null);
     const [loader, setLoader] = useState(false);
 
     useEffect(() => {
@@ -31,6 +32,7 @@ const DashboardBody = () => {
             const res = await fetch('https://whispering-mountain-24832.herokuapp.com/comlains');
             const data = await res.json();
             setUserComplain(data.filter(item => item.userEmail===loggedInUser.userEmail));
+            setAcceptedComplain(data.filter(item => item.userEmail===loggedInUser.userEmail && item.status==='Accepted'));
 
             setLoader(false);
         }
@@ -139,6 +141,20 @@ const DashboardBody = () => {
                 </div>
                 :
                 <div className='userDashBoard-contentBody'>
+                    <div className='userDashBoardBody'>
+                        <h1>Your Complains</h1>
+                        <div className='countContent'>
+                            <div className='countType'>
+                                <h5>Total: <span className='total'>{userComplain?.length}</span></h5>
+                            </div>
+                            <div className='countType'>
+                                <h5>Accepted: <span className='accepted'>{acceptedComplain?.length}</span></h5>
+                            </div>
+                            <div className='countType'>
+                                <h5>Pending: <span className='pending'>{(userComplain?.length)-(acceptedComplain?.length)}</span></h5>
+                            </div>
+                        </div>
+                    </div>
                     {
                         (!loader)?
                         <div className="userComplain-cardBody">

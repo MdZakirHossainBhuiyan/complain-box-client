@@ -83,7 +83,8 @@ const NewComplainsCard = ({newComplain}) => {
     // }
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe">
@@ -179,6 +180,8 @@ const NewComplainsCard = ({newComplain}) => {
                     {newComplain.description}
                 </Typography>
             </CardContent>
+            </div>
+            <div>
             <CardContent style={{"display": "flex", "flexDirection": "row", "alignItems": "center", "justifyContent": "center"}}>
                 <Avatar aria-label="recipe">
                     <LocationOnIcon />
@@ -187,6 +190,9 @@ const NewComplainsCard = ({newComplain}) => {
                     {newComplain.village}, {newComplain.union}, {newComplain.thana}, {newComplain.district}, {newComplain.division}
                 </Typography>
             </CardContent>
+            </div>
+            
+            
         </Card>
     );
 };
