@@ -14,48 +14,171 @@
 
 .userQuery-leftDiv{
     width: 70%;
-    padding: 0px 50px 0px 200px;
+    padding: 0px 10px 0px 200px;
+}
+
+.countSection{
+    width: 100%;
+    height: 50px;
+    background-color: beige;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.countSectionTitle{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.countSectionTitle h4{
+    color: rgb(75, 74, 74);
+    padding-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.countValueArea{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.countValueStyle h5{
+    color: gray;
+}
+
+.total h5 span{
+    color: orange;
+    font-size: 25px;
+}
+
+.read h5 span{
+    color: green;
+    font-size: 25px;
+}
+
+.unread h5 span{
+    color: red;
+    font-size: 25px;
 }
 
 .userQuery-rightDiv{
     width: 30%;
+    height: auto;
+    padding: 0px 30px 0px 0px;
 }
 
-.userQuery-rightDiv h4{
+.queryTypeTitle{
+    width: 100%;
+    height: 50px;
+    background-color: beige;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.queryTypeTitle h4{
+    color: rgb(75, 74, 74);
+    padding-left: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
 
-.userQuery-rightDiv ul{
-    padding-left: 30px;
+.typeSelectBtn{
+    display: flex;
+    flex-direction: column;
     padding-top: 15px;
+    
 }
 
-.userQuery-rightDiv button{
+.btnArea{
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.buttonIcon{
+    width: 30px;
+    height: 30px;
+    border: 2px solid orange;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnArea button{
+    width: 140px;
+    height: 30px;
     border: none;
+    background-color: orange;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    margin: 5px;
+    font-size: 15px;
+    margin-left: 15px;
     cursor: pointer;
-    background-color: #fff;
+    border-radius: 50px;
+    color: #fff;
 }
 
 .userQueryCard-body{
-    padding-top: 20px;
+    background-color: #fff;
+    padding: 20px;
     font-family: 'Times New Roman', Times, serif;
-    padding-bottom: 20px;
-}
-
-.userQuery-subjectDiv{
-    font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px gray;
 }
 
 .userQuery-contactDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 20px;
 }
 
+.userIcon{
+    margin-right: 10px;
+}
+
+.userIcon h4{
+    color: gray;
+    font-size: 20px;
+}
+
+.userIcon p{
+    color: gray;
+    font-size: 15px;
+}
+
+.userQuery-subjectDiv{
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-left: 38px;
+    color: rgb(53, 50, 50);
+}
+
+.userQuery-subjectDiv span{
+    font-size: 17px;
+    color: gray;
+}
+
 .userQuery-bodyDiv{
+    margin-left: 38px;
     text-align: justify;
+}
+
+.userQuery-bodyDiv p{
+    color: gray;
+    font-size: 15px;
+    line-height: 1.3;
 }
 
 .userQuery-ButtonDiv{
@@ -66,9 +189,12 @@
 }
 
 .userQuery-ButtonDiv button{
+    display: flex;
+    align-items: center;
     margin-top: 30px;
     border: none;
     background-color: orange;
+    border-radius: 5px;
     color: white;
     padding: 5px 15px;
     cursor: pointer;
