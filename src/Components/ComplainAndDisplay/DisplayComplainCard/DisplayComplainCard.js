@@ -42,6 +42,11 @@ const DisplayComplainCard = ({complain}) => {
                 title={(complain.identity==="yes")?complain.userName:"Unknown Name"}
                 subheader={(complain.identity==="yes")?complain.userEmail:"Unknown Email"}
             />
+            <CardContent>
+                <Typography variant="body2" color="text.secondary">
+                    {complain.createdTime} | {complain.month} {complain.day}, {complain.year}
+                </Typography>
+            </CardContent>
             <CardMedia
                 component="img"
                 height="194"

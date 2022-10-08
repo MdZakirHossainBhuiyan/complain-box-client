@@ -61,6 +61,32 @@ const ComplainBox = ({state}) => {
         formData.append('identity', inputValue.identity);
         formData.append('description', inputValue.description);
 
+        //store date
+
+        const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        let todayData = new Date();
+        let numberOfMonth = String(todayData.getMonth() + 1).padStart(2, '0');
+
+        const currentTime = new Date().toLocaleTimeString();
+        const day = String(todayData.getDate()).padStart(2, '0');
+        const weekDay = weekDays[todayData.getDay()];
+        let month = '';
+        for(let i=0; i<12; i++){
+            if(i==numberOfMonth){
+                month = monthArray[i-1];
+                break;
+            }
+        }
+
+        const year = new Date().getFullYear();
+        formData.append('createdTime', currentTime);
+        formData.append('day', day);
+        formData.append('weekDay', weekDay);
+        formData.append('month', month);
+        formData.append('year', year);
+
         fetch('https://whispering-mountain-24832.herokuapp.com/addComplain', {
             method: 'POST',
             body: formData

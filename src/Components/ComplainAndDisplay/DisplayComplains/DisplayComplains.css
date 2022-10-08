@@ -14,6 +14,56 @@
     padding: 20px 0px;
 }
 
+.searchArea{
+    width: 80%;
+    height: auto;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    /* background-color: aqua; */
+}
+
+.filterHead{
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.filterButton{
+    width: 110px;
+    height: 40px;
+    border: transparent;
+    background-color: orange;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    cursor: pointer;
+}
+
 .displayComplain-content{
     display: grid;
     grid: auto/auto auto auto;

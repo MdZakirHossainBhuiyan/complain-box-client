@@ -25,10 +25,6 @@ const DashboardBody = () => {
     const [acceptedComplain, setAcceptedComplain] = useState(null);
     const [loader, setLoader] = useState(false);
 
-    // const [total, setTotal] = useState(0);
-    // const [accepted, setAccepted] = useState(0);
-    // const [pending, setPending] = useState(0);
-
     useEffect(() => {
         const fetchComplainsData = async () => {
             setLoader(true);
