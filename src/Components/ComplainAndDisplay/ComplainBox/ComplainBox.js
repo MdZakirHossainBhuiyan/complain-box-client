@@ -100,6 +100,8 @@ const ComplainBox = ({state}) => {
         .catch( (err) => {
             console.error(err);
         });
+
+        handleClose();
     }
 
     return (

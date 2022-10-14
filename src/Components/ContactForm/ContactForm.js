@@ -45,13 +45,13 @@ const ContactForm = () => {
                     (displayForm)?
                     <form className='formBody' onSubmit={handleSubmit}>
                         <div className='contactForm-formInputDiv'>
-                            <TextField onBlur={handleBlur} name="userName" id="standard-basic" label="Full Name" variant="standard" fullWidth />
+                            <TextField onBlur={handleBlur} name="userName" id="standard-basic" label="Full Name" variant="standard" fullWidth required />
                         </div>
                         <div className='contactForm-formInputDiv'>
-                            <TextField onBlur={handleBlur} name="userEmail" id="standard-basic" label="Email" variant="standard" fullWidth />
+                            <TextField onBlur={handleBlur} name="userEmail" id="standard-basic" label="Email" variant="standard" fullWidth required />
                         </div>
                         <div className='contactForm-formInputDiv'>
-                            <TextField onBlur={handleBlur} name="subject" id="standard-basic" label="Subject" variant="standard" fullWidth />
+                            <TextField onBlur={handleBlur} name="subject" id="standard-basic" label="Subject" variant="standard" fullWidth required />
                         </div>
                         <br />
                         <div className='contactForm-formInputDiv '>
@@ -63,6 +63,7 @@ const ContactForm = () => {
                                 fullWidth
                                 name="mailBody"
                                 onBlur={handleBlur}
+                                required
                             />
                         </div>
                         <div className='contactForm-submit'>

@@ -28,13 +28,18 @@ const NewComplainsCard = ({newComplain}) => {
     }
 
     const handleCancel = (id) => {
-        fetch(`https://whispering-mountain-24832.herokuapp.com/complainDelete/${id}`, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            alert('Deleted successfully');
-        })
+
+        if (window.confirm("Are you sure to Delete this complaint?")) {
+            fetch(`https://whispering-mountain-24832.herokuapp.com/complainDelete/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert('Deleted successfully');
+            })
+        } else {
+            alert('Thanks for your confirmation');
+        }
     }
 
     const handleForward = (id) => {

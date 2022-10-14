@@ -1,5 +1,5 @@
 import { Box, CircularProgress, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DisplayComplainCard from '../DisplayComplainCard/DisplayComplainCard';
 import './DisplayComplains.css';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
@@ -8,8 +8,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import TuneIcon from '@mui/icons-material/Tune';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { UserContext } from '../../../App';
 
 const DisplayComplains = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [complains, setComplains] = useState(null);
     const [sliceComplains, setSliceComplains] = useState(null);
     const [loader, setLoader] = useState(false);
@@ -85,82 +87,85 @@ const DisplayComplains = () => {
 
     return (
         <section className='displayComplain-section'>
-            <div className='searchArea'>
-                <div className='filterHead'>
-                    <TuneIcon />
+            {
+                loggedInUser.userStatus!=="user" &&
+                <div className='searchArea'>
+                    <div className='filterHead'>
+                        <TuneIcon />
+                    </div>
+
+                    <div>
+                        <form className='inputField'>
+
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="demo-select-small">From</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={input?.monthFrom}
+                                    name="monthFrom"
+                                    label="From"
+                                    onChange={handleInput}
+                                >
+                                    <MenuItem value={"January"}>January</MenuItem>
+                                    <MenuItem value={"February"}>February</MenuItem>
+                                    <MenuItem value={"March"}>March</MenuItem>
+                                    <MenuItem value={"April"}>April</MenuItem>
+                                    <MenuItem value={"May"}>May</MenuItem>
+                                    <MenuItem value={"June"}>June</MenuItem>
+                                    <MenuItem value={"July"}>July</MenuItem>
+                                    <MenuItem value={"August"}>August</MenuItem>
+                                    <MenuItem value={"September"}>September</MenuItem>
+                                    <MenuItem value={"October"}>October</MenuItem>
+                                    <MenuItem value={"November"}>November</MenuItem>
+                                    <MenuItem value={"December"}>December</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="demo-select-small">To</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={input?.monthTo}
+                                    name="monthTo"
+                                    label="To"
+                                    onChange={handleInput}
+                                >
+                                    <MenuItem value={"January"}>January</MenuItem>
+                                    <MenuItem value={"February"}>February</MenuItem>
+                                    <MenuItem value={"March"}>March</MenuItem>
+                                    <MenuItem value={"April"}>April</MenuItem>
+                                    <MenuItem value={"May"}>May</MenuItem>
+                                    <MenuItem value={"June"}>June</MenuItem>
+                                    <MenuItem value={"July"}>July</MenuItem>
+                                    <MenuItem value={"August"}>August</MenuItem>
+                                    <MenuItem value={"September"}>September</MenuItem>
+                                    <MenuItem value={"October"}>October</MenuItem>
+                                    <MenuItem value={"November"}>November</MenuItem>
+                                    <MenuItem value={"December"}>December</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                                <InputLabel id="demo-select-small">Year</InputLabel>
+                                <Select
+                                    labelId="demo-select-small"
+                                    id="demo-select-small"
+                                    value={input?.year}
+                                    name="year"
+                                    label="Year"
+                                    onChange={handleInput}
+                                >
+                                    <MenuItem value={"2022"}>2022</MenuItem>
+                                </Select>
+                            </FormControl>
+
+                            <button className='filterButton' onClick={handleFilters}>Search <SearchIcon /></button>
+                        </form>
+                    </div>
                 </div>
-
-                <div>
-                    <form className='inputField'>
-
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select-small">From</InputLabel>
-                            <Select
-                                labelId="demo-select-small"
-                                id="demo-select-small"
-                                value={input?.monthFrom}
-                                name="monthFrom"
-                                label="From"
-                                onChange={handleInput}
-                            >
-                                <MenuItem value={"January"}>January</MenuItem>
-                                <MenuItem value={"February"}>February</MenuItem>
-                                <MenuItem value={"March"}>March</MenuItem>
-                                <MenuItem value={"April"}>April</MenuItem>
-                                <MenuItem value={"May"}>May</MenuItem>
-                                <MenuItem value={"June"}>June</MenuItem>
-                                <MenuItem value={"July"}>July</MenuItem>
-                                <MenuItem value={"August"}>August</MenuItem>
-                                <MenuItem value={"September"}>September</MenuItem>
-                                <MenuItem value={"October"}>October</MenuItem>
-                                <MenuItem value={"November"}>November</MenuItem>
-                                <MenuItem value={"December"}>December</MenuItem>
-                            </Select>
-                        </FormControl>
-
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select-small">To</InputLabel>
-                            <Select
-                                labelId="demo-select-small"
-                                id="demo-select-small"
-                                value={input?.monthTo}
-                                name="monthTo"
-                                label="To"
-                                onChange={handleInput}
-                            >
-                                <MenuItem value={"January"}>January</MenuItem>
-                                <MenuItem value={"February"}>February</MenuItem>
-                                <MenuItem value={"March"}>March</MenuItem>
-                                <MenuItem value={"April"}>April</MenuItem>
-                                <MenuItem value={"May"}>May</MenuItem>
-                                <MenuItem value={"June"}>June</MenuItem>
-                                <MenuItem value={"July"}>July</MenuItem>
-                                <MenuItem value={"August"}>August</MenuItem>
-                                <MenuItem value={"September"}>September</MenuItem>
-                                <MenuItem value={"October"}>October</MenuItem>
-                                <MenuItem value={"November"}>November</MenuItem>
-                                <MenuItem value={"December"}>December</MenuItem>
-                            </Select>
-                        </FormControl>
-
-                        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="demo-select-small">Year</InputLabel>
-                            <Select
-                                labelId="demo-select-small"
-                                id="demo-select-small"
-                                value={input?.year}
-                                name="year"
-                                label="Year"
-                                onChange={handleInput}
-                            >
-                                <MenuItem value={"2022"}>2022</MenuItem>
-                            </Select>
-                        </FormControl>
-
-                        <button className='filterButton' onClick={handleFilters}>Search <SearchIcon /></button>
-                    </form>
-                </div>
-            </div>
+            }
 
 
             <div className='displayComplain-content'>
