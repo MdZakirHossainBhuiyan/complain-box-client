@@ -8,7 +8,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 const UserQueryCard = ({query}) => {
 
     const handleReadingStatus = (id) => {
-        fetch(`https://whispering-mountain-24832.herokuapp.com/readingStatusUpdate/${id}`, {
+        fetch(`http://localhost:5000/readingStatusUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -21,7 +21,7 @@ const UserQueryCard = ({query}) => {
     }
 
     const handleDeleteQuery = (id) => {
-        fetch(`https://whispering-mountain-24832.herokuapp.com/contactDelete/${id}`, {
+        fetch(`http://localhost:5000/contactDelete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

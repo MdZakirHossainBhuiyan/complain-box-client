@@ -20,3 +20,25 @@
     justify-content: center;
     margin-top: 500px;
 }
+
+.seeCommentsButtonDiv{
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.seeCommentsButton{
+    border: none;
+    background-color: transparent;
+    color: blue;
+    cursor: pointer;
+}
+
+.comments{
+    color: gray;
+    margin: 10px 5px;
+    font-size: 13px;
+    font-style: italic;
+}

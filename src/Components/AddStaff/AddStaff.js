@@ -38,7 +38,7 @@ const AddStaff = () => {
             formData.append('word', inputValue?.word);
         }
 
-        fetch('https://whispering-mountain-24832.herokuapp.com/addStaff', {
+        fetch('http://localhost:5000/addStaff', {
             method: 'POST',
             body: formData
         })

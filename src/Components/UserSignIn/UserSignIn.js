@@ -14,7 +14,7 @@ const UserSignIn = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://whispering-mountain-24832.herokuapp.com/userData')
+        fetch('http://localhost:5000/userData')
         .then(res => res.json())
         .then(data => setUserLoadData(
             data.find(userData => (userData.userEmail===userInfo?.email && userData.userPassword===userInfo?.password))

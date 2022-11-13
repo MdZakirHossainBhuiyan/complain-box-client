@@ -87,7 +87,7 @@ const ComplainBox = ({state}) => {
         formData.append('month', month);
         formData.append('year', year);
 
-        fetch('https://whispering-mountain-24832.herokuapp.com/addComplain', {
+        fetch('http://localhost:5000/addComplain', {
             method: 'POST',
             body: formData
         })

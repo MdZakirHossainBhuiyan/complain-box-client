@@ -12,7 +12,7 @@ const EmergencyContactContent = () => {
     const [emergencyContactData, setEmergencyContactData] = useState(null);
 
     useEffect(() => {
-        fetch('https://whispering-mountain-24832.herokuapp.com/emergencyContact')
+        fetch('http://localhost:5000/emergencyContact')
         .then(response => response.json())
         .then(data => setEmergencyContactData(data));
     }, [])
