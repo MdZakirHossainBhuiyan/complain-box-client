@@ -15,7 +15,7 @@ const DisplayComplainCard = ({complain}) => {
     }
 
     const handleComplainCardDelete = (id) => {
-        fetch(`http://localhost:5000/complainDelete/${id}`, {
+        fetch(`https://complain-box-server.vercel.app/complainDelete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

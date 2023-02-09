@@ -51,7 +51,7 @@ const DisplayComplains = () => {
         const fetchComplainsData = async () => {
             setLoader(true);
 
-            const res = await fetch('http://localhost:5000/comlains');
+            const res = await fetch('https://complain-box-server.vercel.app/comlains');
             const data = await res.json();
 
 

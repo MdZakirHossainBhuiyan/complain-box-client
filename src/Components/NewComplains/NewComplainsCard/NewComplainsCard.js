@@ -69,7 +69,7 @@ const NewComplainsCard = ({newComplain}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:5000/updateComplain/${inputValue?.complainId}`, {
+        fetch(`https://complain-box-server.vercel.app/updateComplain/${inputValue?.complainId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

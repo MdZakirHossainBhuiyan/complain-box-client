@@ -87,7 +87,7 @@ const ComplainBox = ({state}) => {
         formData.append('month', month);
         formData.append('year', year);
 
-        fetch('http://localhost:5000/addComplain', {
+        fetch('https://complain-box-server.vercel.app/addComplain', {
             method: 'POST',
             body: formData
         })

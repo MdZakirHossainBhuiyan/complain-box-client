@@ -25,7 +25,7 @@ const AddEmergencyContact = () => {
         formData.append('fire', inputValue.fire);
         formData.append('hospital', inputValue.hospital);
 
-        fetch('http://localhost:5000/addEmergencyContact', {
+        fetch('https://complain-box-server.vercel.app/addEmergencyContact', {
             method: 'POST',
             body: formData
         })

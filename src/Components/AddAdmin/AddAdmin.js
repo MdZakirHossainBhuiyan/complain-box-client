@@ -27,7 +27,7 @@ const AddAdmin = () => {
         formData.append('userAddress', inputValue.address);
         formData.append('userStatus', inputValue.status);
 
-        fetch('http://localhost:5000/addAdmin', {
+        fetch('https://complain-box-server.vercel.app/addAdmin', {
             method: 'POST',
             body: formData
         })

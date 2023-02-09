@@ -15,7 +15,7 @@ const StaffListTable = () => {
         const fetchUserData = async () => {
             setLoader(true);
 
-            const response = await fetch('http://localhost:5000/userData');
+            const response = await fetch('https://complain-box-server.vercel.app/userData');
             const data = await response.json();
             setStaffListData(
                 data.filter(staff => staff.userStatus!=="user")

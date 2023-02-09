@@ -8,7 +8,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 const UserQueryCard = ({query}) => {
 
     const handleReadingStatus = (id) => {
-        fetch(`http://localhost:5000/readingStatusUpdate/${id}`, {
+        fetch(`https://complain-box-server.vercel.app/readingStatusUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -21,7 +21,7 @@ const UserQueryCard = ({query}) => {
     }
 
     const handleDeleteQuery = (id) => {
-        fetch(`http://localhost:5000/contactDelete/${id}`, {
+        fetch(`https://complain-box-server.vercel.app/contactDelete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

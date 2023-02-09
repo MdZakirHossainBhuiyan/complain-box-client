@@ -22,7 +22,7 @@ const ListCard = ({data}) => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://complain-box-server.vercel.app/delete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
@@ -36,7 +36,7 @@ const ListCard = ({data}) => {
     }
 
     const handleUpdateSave = (id) => {
-        fetch(`http://localhost:5000/staffAdminDataUpdate/${id}`, {
+        fetch(`https://complain-box-server.vercel.app/staffAdminDataUpdate/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

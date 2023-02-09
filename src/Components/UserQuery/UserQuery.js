@@ -24,7 +24,7 @@ const UserQuery = () => {
     useEffect(() => {
         const fetchUserQuery = async () => {
             setLoader(true);
-            const res = await fetch('http://localhost:5000/userQuery');
+            const res = await fetch('https://complain-box-server.vercel.app/userQuery');
             const data = await res.json();
             setReadQuery(data.filter(item => item.readingStatus==="Read"));
             setUnreadQuery(data.filter(item => item.readingStatus==="Unread"));

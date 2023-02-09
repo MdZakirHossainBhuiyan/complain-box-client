@@ -24,7 +24,7 @@ const SignUp = () => {
         formData.append('userEmail', userInfo.email);
         formData.append('userPassword', userInfo.password);
 
-        fetch('http://localhost:5000/addUser', {
+        fetch('https://complain-box-server.vercel.app/addUser', {
             method: 'POST',
             body: formData
         })

@@ -38,7 +38,7 @@ const AddStaff = () => {
             formData.append('word', inputValue?.word);
         }
 
-        fetch('http://localhost:5000/addStaff', {
+        fetch('https://complain-box-server.vercel.app/addStaff', {
             method: 'POST',
             body: formData
         })
